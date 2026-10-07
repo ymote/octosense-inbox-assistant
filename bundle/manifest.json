@@ -39,10 +39,10 @@
   },
   "id": "org.octosense.samples.inbox",
   "integrity": {
-    "bundle_blake3": "dc8c4d215e1aa28b86752f8632d028588d30e8775ebad6f52a48a943b7780040",
+    "bundle_blake3": "af1ea9d980e45ef22dc566b3ed5855abe3006cc0a557cbb9b61c9fcfad47c1f7",
     "signature": {
       "key_id": "ymote",
-      "value": "29b50a8d79f8359a04101e7d6fb8851140be7cb5a55a2f062faaf220d9a0660d0b168989a55105e9f4fbddb7c07435ae5e1de9f48341d076af75f5426d0a110f"
+      "value": "5ecb19c31d96ba18ca12e3779fdb46cb59726e863679e80d26ac750d7f48547e9e1afb8d0bd757a45827e0ff9aac703258ae1ab47769b1abc2a1676c854c0f0a"
     }
   },
   "name": "Inbox Assistant",
@@ -54,5 +54,5 @@
     "accounts": true,
     "max_bytes": null
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "app_id": "org.octosense.samples.inbox",
+  "version": "0.1.0",
+  "publisher": "ymote",
+  "public_key": "dbda2ca2b6376e8a4bb9d011d6f9aab0f2953021ab9e433215fa1094828761bc",
+  "bundle_digest": "dc8c4d215e1aa28b86752f8632d028588d30e8775ebad6f52a48a943b7780040",
+  "hub_revision": "5c7a13f92fa25d36ba1fe7fb99dc9fb1b235f8d3",
+  "hub_binary_sha256": "ee623dc0995fa73c2af9d9107bd2ac1408b7e84ef1fdac80bf461574f45970d8",
+  "upstream_flow_revision": "5b0fde7ed0e9e4131751d16f55ba3d8a3180dd95",
+  "required_runtime_revision": "26b9fe9fa51ef3c1fe6f833743144a2e12cf54e3",
+  "official_catalog_sequence": 4,
+  "official_catalog_sha256": "71a2703b93b283aee6d30fa0f1d4b58a9a4e5a025a9a55f7f73c7c8c67a9deee",
+  "signed_gate_passed": true,
+  "scan_questions": 8,
+  "preserved_upstream_files_sha256": {
+    "AGENT.md": "71980af7c9da5cbcb8e3b93b43b9a890ab2100206c8ed0b2a6c2d4a4a1f31ac9",
+    "assets/icon.svg": "d84fe698d55b652e58d36e498fb856cfe14559611253d7942c3f87a978912a40",
+    "glance-workspace.splash": "5d30c155080c6f78bd5687fcdcc533c366ff6f04cd77db77d834d0d9e2cf6162",
+    "main.splash": "42b2827a168cd74b1c945f1e567ced6380e934a9b68fbcd125c219fcb015d6b1",
+    "screenshots/01-main.png": "422674f253483ebc7f132a3084b859000c6ecc775b93186a6355e84c93b22ba9",
+    "screenshots/02-chat.png": "0fac34428a8d345a8db37955ac6f1372a06750e50ab66c4e5ec174a3d4497df0",
+    "skills/incoming-mail-triage/SKILL.md": "6a0c9be41271adcfc84c7b6617b5d5dea1f8f5fec9f9ae3c24423cb66e1f2329",
+    "skills/incoming-mail-triage/manifest.json": "d44cdaa9404a542710ed9a732065a2030b6eef0b1ddba3bcaeb11aa6bbfbc633",
+    "tools.json": "49c74641c862730a39275423f9f9a4e0a18c03e33abcbb36505e2cd92b641136"
+  },
+  "release_files_sha256": {
+    "AGENT.md": "71980af7c9da5cbcb8e3b93b43b9a890ab2100206c8ed0b2a6c2d4a4a1f31ac9",
+    "assets/icon.svg": "d84fe698d55b652e58d36e498fb856cfe14559611253d7942c3f87a978912a40",
+    "glance-workspace.splash": "5d30c155080c6f78bd5687fcdcc533c366ff6f04cd77db77d834d0d9e2cf6162",
+    "listing.json": "f220d571a3e232f16b5598f39a81b9fdcf1602075a4b0e467069e83fa1242eb1",
+    "main.splash": "42b2827a168cd74b1c945f1e567ced6380e934a9b68fbcd125c219fcb015d6b1",
+    "manifest.json": "13e18cadb3f3648f80fb87bfbd5b3e57cb22e3a4f5bda0c8e94dc133ff6eb66b",
+    "screenshots/01-main.png": "422674f253483ebc7f132a3084b859000c6ecc775b93186a6355e84c93b22ba9",
+    "screenshots/02-chat.png": "0fac34428a8d345a8db37955ac6f1372a06750e50ab66c4e5ec174a3d4497df0",
+    "skills/incoming-mail-triage/SKILL.md": "6a0c9be41271adcfc84c7b6617b5d5dea1f8f5fec9f9ae3c24423cb66e1f2329",
+    "skills/incoming-mail-triage/manifest.json": "d44cdaa9404a542710ed9a732065a2030b6eef0b1ddba3bcaeb11aa6bbfbc633",
+    "tools.json": "49c74641c862730a39275423f9f9a4e0a18c03e33abcbb36505e2cd92b641136"
+  },
+  "validation_boundary": "Publisher metadata and signature finalized; functional source and original screenshots are byte-identical to the linked historical evidence. Live provider acceptance and official App Hub admission remain pending."
+}

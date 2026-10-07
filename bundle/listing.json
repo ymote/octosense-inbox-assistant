@@ -22,7 +22,7 @@
     "support": "https://github.com/ymote/octosense-inbox-assistant/issues",
     "privacy_policy_url": "https://github.com/ymote/octosense-inbox-assistant/blob/main/PRIVACY.md"
   },
-  "release_notes": "0.1.0 developer-preview packaging of the tested connected Inbox sample. Publisher/support/privacy metadata finalized for ymote; application code, tools, agent guidance, skill and historical screenshots unchanged. Review is required before catalog admission.",
+  "release_notes": "0.1.1: require the admitted Glance workspace template and initial message data for agent notifications; remove executable source alternatives. Email/Reply/Chat UI, original screenshots and physical send approval are unchanged. Preview and live-provider limits still apply.",
   "age_rating": "all",
   "license": "Apache-2.0"
 }

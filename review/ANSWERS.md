@@ -1,6 +1,6 @@
 # App Hub review answers
 
-Publisher preparation for `org.octosense.samples.inbox` `0.1.0`. These answer
+Publisher preparation for `org.octosense.samples.inbox` `0.1.1`. These answer
 the **eight questions actually emitted** by the matching `hub scan`, not an
 older seven-question template. Scan packets stay in ignored `build/`.
 This document is not a reviewer approval.
@@ -13,7 +13,7 @@ Historical functional source passed 33 Mac soak cycles and cold restoration with
 
 ## 2. Do the listing's platforms and category fit an app of this kind?
 
-`productivity` matches an email reading/reply workflow. Only `macos` is listed. Historical tests used a native hidden macOS Shell and Makepad input, not Android, Windows or Linux. Android Google authorization is missing. The listing requires OctoSense #347 and App Hub #119 and does not imply broad released-host support.
+`productivity` matches an email reading/reply workflow. Only `macos` is listed. Historical tests used a native hidden macOS Shell and Makepad input, not Android, Windows or Linux. Android Google authorization is missing. The connected-services baseline ships in the macOS Apple Silicon desktop-v0.1.0-beta.2 preview. This update makes no Android, Windows or Linux compatibility claim.
 
 ## 3. Do the granted capabilities match what the app visibly does? For a script app, name every host it requests and why. Name any grant nothing on screen needs.
 
@@ -35,7 +35,7 @@ No abusive wording or attack on a private individual was identified. Included se
 
 ## 7. The agent files (agent_files) instruct this app's own assistant. Do they stay within this app's data and tools, without addressing other apps' assistants or the system agent, or asking for tools, hosts or approvals the manifest does not grant? Does each tool's risk match what it does: anything that sends, posts, shares, deletes or spends must be destructive; is anything marked shareable that returns the person's private data? For a tool with confirm "app", does the app visibly show its own confirmation, with the exact action, before it runs?
 
-The declared AGENT and skill remain within this app/account. They require exact host-supplied identity, treat email as untrusted, read back saved edits, prohibit autonomous sending and reject invented Calendar or memory capabilities. Mentioning that cross-app booking requires a real separately granted tool does not request or install that tool. The skill contains text/data only.
+The declared AGENT and skill remain within this app/account. In 0.1.1 the notification schema requires the admitted template, initial message, title, summary and notification decision; it exposes no script/source/data alternative. They require exact host-supplied identity, treat email as untrusted, read back saved edits, prohibit autonomous sending and reject invented Calendar or memory capabilities. Mentioning that cross-app booking requires a real separately granted tool does not request or install that tool. The skill contains text/data only.
 
 All nine [`inbox.*` tools](../bundle/tools.json) are `private_data:true` and `shareable:false`. Message/draft/event reads have `read` risk. Draft creation/edit, durable decisions and local Glance publish/withdraw use `act`; these change local account state or local display, not remote mail or public sharing. Withdraw retires a card rather than deleting a Gmail message. No tool sends, posts remotely, deletes provider data or spends. No `confirm:"app"` tool is declared. Sending is exclusively the UI-to-host immutable native review path with physical provenance; a model, script, service-origin flag or instrument click cannot approve it.
 
@@ -43,4 +43,4 @@ Agent consent enables model triage of eligible new mail before importance is kno
 
 ## 8. Route: pass, human-review, or reject. Give reasons a publisher can act on.
 
-**Recommended route: human-review.** This is an author preparation report, not an App Hub reviewer verdict or approval. The unsigned structural gate passes, but the package depends on connected-services runtime/Hub changes, live Google and actual sending remain unverified, and the Mac instrument had two unresolved frame-submission errors. A maintainer must verify the published tag/commit, publisher signature, live privacy/support URLs and compatibility before deciding catalog admission. Only macOS developer-preview scope is proposed. Do not silently upgrade this to a stable/live-provider release or add Android. Root publication tooling supplies final signed gate and release metadata separately.
+**Recommended route: human-review.** This is an author preparation report, not an App Hub reviewer verdict or approval. The signed structural gate passes against the existing catalog and recorded ymote key, but the package depends on connected-services runtime/Hub changes, live Google and actual sending remain unverified, and the Mac instrument had two unresolved frame-submission errors. A maintainer must verify the published tag/commit, publisher signature, live privacy/support URLs and compatibility before deciding catalog admission. Only macOS developer-preview scope is proposed. Do not silently upgrade this to a stable/live-provider release or add Android. Final signed gate, questions and release metadata are recorded alongside these answers; catalog admission is still separate.

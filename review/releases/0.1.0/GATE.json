@@ -1,0 +1,10 @@
+{
+  "app_id": "org.octosense.samples.inbox",
+  "digest": "dc8c4d215e1aa28b86752f8632d028588d30e8775ebad6f52a48a943b7780040",
+  "findings": [],
+  "passed": true,
+  "resources": [],
+  "schema": 1,
+  "stage": "structural",
+  "version": "0.1.0"
+}

@@ -2,7 +2,7 @@
 
 English | [简体中文](PRIVACY.zh-CN.md)
 
-Effective: 2026-10-06. Publisher: **ymote**. This describes the `0.1.0`
+Effective: 2026-10-07. Publisher: **ymote**. This describes the `0.1.1`
 developer-preview bundle `org.octosense.samples.inbox` and the matching
 connected-services host, not every service running inside OctoSense.
 
@@ -57,7 +57,8 @@ mail. These can contain personal information and be visible to someone viewing
 the device, according to the host’s display/notification settings. The card
 keeps an account/message binding and admitted workspace source; the instruction
 requires a loading placeholder instead of embedding the full email body in
-card metadata. Opening the workspace reads the full email through the host.
+card metadata. The notification tool only accepts the declared template and
+initial data; agent-authored executable card source is not accepted. Opening the workspace reads the full email through the host.
 
 Reply, Chat and review share a revisioned host draft. **Review & Send** asks
 the host to display the exact account, recipient, subject and body. The agent
