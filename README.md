@@ -5,7 +5,7 @@ English | [简体中文](README.zh-CN.md)
 A macOS **developer preview** for OctoSense: read Gmail, edit one reply shared
 by Email / Reply / Chat, and review the exact saved message in the host’s
 native approval sheet. Its optional app agent selectively creates Glance cards
-for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.1` (release candidate).
+for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.1` (publisher-signed preview).
 
 ## Required host
 
@@ -13,9 +13,8 @@ Install the [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon preview](https:
 The previous signed `0.1.0` bundle is available in the official App Hub catalog
 (first admission: [sequence 7, App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)). In OctoSense, open
 **App Hub → Search**, search **Inbox Assistant**, then choose **Get → Install → Open**
-after reviewing the requested permissions. The current `0.1.1` candidate needs
-a new publisher signature and catalog admission before that installation path
-serves it; use the immutable `v0.1.0` tag for the previous release.
+after reviewing the requested permissions. The publisher-signed `0.1.1` update still needs catalog admission before that
+installation path serves it; use the immutable `v0.1.0` tag for the previous release.
 
 Older shells and standalone `card-host` do not provide the OAuth/Gmail/agent
 services. This repository contains the script bundle, not a desktop executable.
@@ -96,6 +95,8 @@ mkdir -p build
 "$HUB" scan bundle --packet build/review.json
 ```
 
+Signed verification is recorded in [review/GATE.txt](review/GATE.txt),
+[review/RELEASE.json](review/RELEASE.json) and the eight [scan questions](review/QUESTIONS.json).
 Only `bundle/` is submitted. Keep model profiles, accounts, captures from real
 mail, signing keys and generated scan packets outside Git.
 `verify_native.py --port PORT --binary /path/to/card-host` exercises fictional

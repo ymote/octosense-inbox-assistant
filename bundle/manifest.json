@@ -39,7 +39,11 @@
   },
   "id": "org.octosense.samples.inbox",
   "integrity": {
-    "bundle_blake3": "af1ea9d980e45ef22dc566b3ed5855abe3006cc0a557cbb9b61c9fcfad47c1f7"
+    "bundle_blake3": "af1ea9d980e45ef22dc566b3ed5855abe3006cc0a557cbb9b61c9fcfad47c1f7",
+    "signature": {
+      "key_id": "ymote",
+      "value": "5ecb19c31d96ba18ca12e3779fdb46cb59726e863679e80d26ac750d7f48547e9e1afb8d0bd757a45827e0ff9aac703258ae1ab47769b1abc2a1676c854c0f0a"
+    }
   },
   "name": "Inbox Assistant",
   "network": {

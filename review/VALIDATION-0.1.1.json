@@ -23,5 +23,7 @@
   "native_ui_rerun": false,
   "live_provider_or_model_calls": false,
   "publication": "The designated publisher must sign exact final bytes and publish a new immutable tag/catalog entry.",
-  "hub_checkout_revision": "5c7a13f92fa25d36ba1fe7fb99dc9fb1b235f8d3"
+  "hub_checkout_url": "https://github.com/OctoSense-org/OctoSense-App-Hub/commit/5c7a13f92fa25d36ba1fe7fb99dc9fb1b235f8d3",
+  "record_kind": "Historical unsigned candidate validation; final signed verification is in RELEASE.json and GATE.json.",
+  "hub_build_source_binding": "The checkout URL records unsigned preparation context, not an independently captured source-to-binary build receipt. Final signed verification records its separately rebuilt Hub source in RELEASE.json."
 }

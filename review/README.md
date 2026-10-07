@@ -1,10 +1,14 @@
 # Release review records
 
-The current branch prepares **0.1.1**. The publisher must stamp and sign its exact
-final bytes, check against the recorded public key and submit the new immutable
-tag before official catalog publication. An unsigned gate is not admission.
+**0.1.1 is publisher-signed.** `GATE.txt` / `GATE.json` verify the final signed
+bundle against the recorded ymote public key and existing official catalog.
+`QUESTIONS.json` contains the eight emitted scan questions; `ANSWERS.md` is the
+publisher self-review, not a maintainer verdict. `RELEASE.json` binds these
+checks to the exact bundle files and the Hub tool used.
 
-[`releases/0.1.0/`](releases/0.1.0/RELEASE.json) preserves the previous release's
-signed records. They do not verify the changed 0.1.1 bundle. Candidate packets
-stay in ignored `build/`; the designated publisher adds the new signed records
-here after signing. See [answers](ANSWERS.md) and the repository README.
+Official catalog admission remains a separate maintainer decision. The immutable
+`v0.1.1` source tag identifies this release once published. The previous signed
+records in [`releases/0.1.0/`](releases/0.1.0/RELEASE.json) and unsigned preparation
+record `VALIDATION-0.1.1.json` remain historical; they do not replace the final
+signed check or claim new native/provider execution. Raw scan packets stay in
+ignored `build/` outside the bundle.

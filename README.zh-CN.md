@@ -4,7 +4,7 @@
 
 这是 OctoSense 的 macOS **开发预览应用**。通过主机读取 Gmail，Email／Reply／Chat
 共用一份已保存草稿；发送前由主机原生界面审核完整内容。可选应用代理针对重要
-新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，版本 `0.1.1`（发布候选）。
+新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，版本 `0.1.1`（发布者已签名预览）。
 
 ## 所需主机
 
@@ -52,11 +52,14 @@ Google 登录与应用代理同意分别控制。允许代理后，保持收件�
 应用日历预约、附件、全部回复、富文本、超过首批 30 行的分页和共享系统记忆
 汇总均不在本应用已实现范围内。
 
-此独立包只调整发布者／商店元数据和文档，所以摘要不同于历史测试包；应用代码、
-工具、代理指导、技能和截图保持原字节。[来源说明](ATTRIBUTION.md)与
+本次 0.1.1 调整通知 schema、代理／技能指导与发布元数据；应用／模板界面和原始
+截图保持不变。应用摘要因此发生变化，历史测试并非这个新摘要的执行证据。[来源说明](ATTRIBUTION.md)与
 [源码核对](review/SOURCE-AUDIT.json)记录该边界，不把旧测试改称为新签名发布验证。
 
 ## 验证发布包
+
+最终签名检查见 [review/GATE.txt](review/GATE.txt)、[发布记录](review/RELEASE.json)及
+[八项扫描问题](review/QUESTIONS.json)；官方目录准入仍是独立步骤。
 
 从 `publisher.json` 的 `public_key` 读取公钥至 `YMOTE_PUBLIC_KEY`，执行
 `"$HUB" check bundle --publisher-key "ymote=$YMOTE_PUBLIC_KEY"` 验证未修改的
@@ -80,9 +83,10 @@ Google 登录与应用代理同意分别控制。允许代理后，保持收件�
 标题、摘要及是否通知的决定，不再接受 `script`、`source` 或 `data` 替代参数。
 代理负责重要性与内容判断，已签名模板提供原有 Email／Reply／Chat 工作区。
 应用／模板界面及原始截图字节不变；这次声明修正不构成新的真实 Gmail、发送或
-模型性能验证。当前候选需重新签名和目录准入后才会替换商店版本。
+模型性能验证。当前版本已由发布者签名，仍需目录准入后才会替换商店版本。
 运行 `python3 -m unittest discover -s tests -v` 检查发布契约，再运行匹配 Hub 的准入检查。
 
-旧 `0.1.0` 签名记录保存在 `review/releases/0.1.0/`，不能验证当前 `0.1.1` 候选。指定发布者签名后才会补充新记录；未签名的 gate 通过不等于正式准入。
+旧 `0.1.0` 签名记录保存在 `review/releases/0.1.0/`，不用于验证 `0.1.1`。新的签名
+记录已在 `review/` 中提供；结构检查通过和发布者签名仍不等于官方目录准入。
 
 本次包哈希变化还包括通知 schema、代理／技能指令；原始 UI、模板和截图保持不变。`review/SOURCE-AUDIT.json` 是 0.1.0 的历史来源记录，不验证本次新包。
