@@ -5,15 +5,17 @@ English | [简体中文](README.zh-CN.md)
 A macOS **developer preview** for OctoSense: read Gmail, edit one reply shared
 by Email / Reply / Chat, and review the exact saved message in the host’s
 native approval sheet. Its optional app agent selectively creates Glance cards
-for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.0`.
+for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.1` (release candidate).
 
 ## Required host
 
 Install the [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon preview](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2).
-This app's signed `0.1.0` bundle is available in the official App Hub catalog
+The previous signed `0.1.0` bundle is available in the official App Hub catalog
 (first admission: [sequence 7, App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)). In OctoSense, open
 **App Hub → Search**, search **Inbox Assistant**, then choose **Get → Install → Open**
-after reviewing the requested permissions.
+after reviewing the requested permissions. The current `0.1.1` candidate needs
+a new publisher signature and catalog admission before that installation path
+serves it; use the immutable `v0.1.0` tag for the previous release.
 
 Older shells and standalone `card-host` do not provide the OAuth/Gmail/agent
 services. This repository contains the script bundle, not a desktop executable.
@@ -61,9 +63,10 @@ or Linux platform claim is made. Cross-app Calendar booking, attachments,
 Reply All, rich-text replies, pagination beyond the first 30 rows and shared
 system-memory promotion are not implemented in this app.
 
-This standalone package changes publisher/listing metadata and documentation;
-its bundle digest therefore differs from historical test digests.
-[Provenance](ATTRIBUTION.md) and [source hashes](review/SOURCE-AUDIT.json) distinguish
+This version changes the notification schema, agent/skill guidance and release
+metadata. The unchanged application/template UI bytes and original screenshots
+do not make historical tests evidence for this new bundle digest.
+[Provenance](ATTRIBUTION.md) and [0.1.0 source audit](review/SOURCE-AUDIT.json) distinguish
 unchanged application bytes from the new package. No historical run is relabelled
 as a test of the new signed release.
 
@@ -104,3 +107,14 @@ approve a send. See the versioned evidence above for those commands.
 Publisher: [ymote](https://github.com/ymote). [Support](https://github.com/ymote/octosense-inbox-assistant/issues) ·
 [Privacy](PRIVACY.md) · [Review answers](review/ANSWERS.md) · [Apache-2.0](LICENSE).
 Do not post private messages, credentials or unredacted logs in public issues.
+
+## 0.1.1 contract correction
+
+The notification tool now requires the admitted `glance-workspace.splash`
+template plus `initial.message`, title, summary and the notify decision. It
+accepts no `script`, `source` or `data` alternative. The agent chooses relevance
+and content; the signed template supplies the existing Email / Reply / Chat
+workspace. Application and template UI bytes and original screenshots are
+unchanged. No new live Gmail, sending or model-performance claim follows from
+this declaration change. Run `python3 -m unittest discover -s tests -v` for the
+release-contract checks and the matching Hub gate for structural admission.

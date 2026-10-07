@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "version": "0.1.1",
+  "app_id": "org.octosense.samples.inbox",
+  "bundle_digest": "af1ea9d980e45ef22dc566b3ed5855abe3006cc0a557cbb9b61c9fcfad47c1f7",
+  "signed": false,
+  "catalog_published": false,
+  "hub_binary_sha256": "dfbd4c7940e0446b2a636c4a9f98d84a9515bcfd72f2e11b0df41045f351e4cf",
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "passed": 4,
+    "scope": "Declaration and immutable UI/screenshot provenance; not live agent/provider execution"
+  },
+  "gate": "org.octosense.samples.inbox 0.1.1 \u2014 PASSED\n  [warning] publisher-signature: unsigned: accountability rests on the hub alone\n  grants: capabilities {\"auth\", \"glance\", \"gmail\", \"model\", \"octos.session.open\", \"octos.turn.start\", \"storage\"}, hosts {}, storage 16777216 bytes, agent read-only",
+  "scan_questions": 8,
+  "prior_signed_records_sha256": {
+    "GATE.txt": "643bda097148d11b49c0b9abb59eca7d678b315ca5d29dbd19fa9df736abccb5",
+    "GATE.json": "74c92e6070da85eb7ef370b0911ca1d3a475ef19c5bcb116e37ac054cb594933",
+    "RELEASE.json": "6fc1aa3e2b0d1ab770c9c8eec42f110224208c051a0f0b8cf8ebd2da47334126",
+    "QUESTIONS.json": "57c0138fe30636603b9cf008143a6300477676d2f717c406203eb75d02d494d5"
+  },
+  "native_ui_changed": false,
+  "native_ui_rerun": false,
+  "live_provider_or_model_calls": false,
+  "publication": "The designated publisher must sign exact final bytes and publish a new immutable tag/catalog entry.",
+  "hub_checkout_revision": "5c7a13f92fa25d36ba1fe7fb99dc9fb1b235f8d3"
+}

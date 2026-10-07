@@ -4,12 +4,12 @@
 
 这是 OctoSense 的 macOS **开发预览应用**。通过主机读取 Gmail，Email／Reply／Chat
 共用一份已保存草稿；发送前由主机原生界面审核完整内容。可选应用代理针对重要
-新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，版本 `0.1.0`。
+新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，版本 `0.1.1`（发布候选）。
 
 ## 所需主机
 
 安装 [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon 预览版](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2)。
-本应用签名版本 `0.1.0` 已进入官方 App Hub 目录，首次收录为
+之前的签名版本 `0.1.0` 已进入官方 App Hub 目录，首次收录为
 [目录序号 7，App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)。在 OctoSense 中打开 **App Hub → Search**，
 搜索 **Inbox Assistant**，审阅权限后依次点击 **Get → Install → Open**。
 
@@ -73,3 +73,16 @@ Google 登录与应用代理同意分别控制。允许代理后，保持收件�
 发布者：[ymote](https://github.com/ymote)；[反馈](https://github.com/ymote/octosense-inbox-assistant/issues)；
 [隐私](PRIVACY.zh-CN.md)；[审核问答](review/ANSWERS.md)；[Apache-2.0](LICENSE)。
 请勿在公开问题中发送私人邮件、凭据或未清理的日志。
+
+## 0.1.1 契约修正
+
+通知工具现在必须提供已准入的 `glance-workspace.splash` 模板、`initial.message`、
+标题、摘要及是否通知的决定，不再接受 `script`、`source` 或 `data` 替代参数。
+代理负责重要性与内容判断，已签名模板提供原有 Email／Reply／Chat 工作区。
+应用／模板界面及原始截图字节不变；这次声明修正不构成新的真实 Gmail、发送或
+模型性能验证。当前候选需重新签名和目录准入后才会替换商店版本。
+运行 `python3 -m unittest discover -s tests -v` 检查发布契约，再运行匹配 Hub 的准入检查。
+
+旧 `0.1.0` 签名记录保存在 `review/releases/0.1.0/`，不能验证当前 `0.1.1` 候选。指定发布者签名后才会补充新记录；未签名的 gate 通过不等于正式准入。
+
+本次包哈希变化还包括通知 schema、代理／技能指令；原始 UI、模板和截图保持不变。`review/SOURCE-AUDIT.json` 是 0.1.0 的历史来源记录，不验证本次新包。

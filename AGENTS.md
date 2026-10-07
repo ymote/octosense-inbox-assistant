@@ -1,7 +1,7 @@
 # Working on Inbox Assistant
 
 This is a standalone publisher repository for `org.octosense.samples.inbox`
-0.1.0, derived from the immutable source in [ATTRIBUTION.md](ATTRIBUTION.md).
+0.1.1, derived from the immutable source in [ATTRIBUTION.md](ATTRIBUTION.md).
 Read [README.md](README.md), [PRIVACY.md](PRIVACY.md), and the upstream
 [App Hub publishing contract](https://github.com/OctoSense-org/OctoSense-App-Hub/blob/main/docs/PUBLISHING.md).
 
