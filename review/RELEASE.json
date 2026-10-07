@@ -15,7 +15,7 @@
     "sequence": 7,
     "sha256": "bc03502649724e6a603ea5d99e62981a3387a5b07d5e8f1195ea340036b61f2d"
   },
-  "catalog_published": false,
+  "catalog_published": true,
   "release_files_sha256": {
     "AGENT.md": "423f618b5e87f225098958b64a76dd1a0f7ec59a7d982fcfca7bde39160638f7",
     "assets/icon.svg": "d84fe698d55b652e58d36e498fb856cfe14559611253d7942c3f87a978912a40",
@@ -34,5 +34,13 @@
     "GATE.json": "23fe4c6e451e0928715ee562a05103d262f30643d0b0729e7de1296b46b55420",
     "QUESTIONS.json": "57c0138fe30636603b9cf008143a6300477676d2f717c406203eb75d02d494d5"
   },
-  "validation_boundary": "Signed structural gate and scan packet generation passed with publisher continuity. Declaration/provenance tests pass; UI and original screenshots are unchanged. No new native, live provider, broker or model execution is claimed. Official catalog admission is pending."
+  "validation_boundary": "Signed structural gate and scan packet generation passed with publisher continuity. Declaration/provenance tests pass; UI and original screenshots are unchanged. No new native, live provider, broker or model execution is claimed. Official catalog admission completed at sequence 10; the default public catalog and artifacts were verified separately without adding native/provider claims.",
+  "catalog_publication": {
+    "sequence": 10,
+    "pull_request": "https://github.com/OctoSense-org/OctoSense-App-Hub/pull/133",
+    "merge_commit_url": "https://github.com/OctoSense-org/OctoSense-App-Hub/commit/b8750d92c41365c4ff80f9baef077275a15b020b",
+    "verified_at_utc": "2026-10-07T07:19:32.352387+00:00",
+    "receipt": "CATALOG-0.1.1.json",
+    "immutable_tag_record_unchanged": true
+  }
 }

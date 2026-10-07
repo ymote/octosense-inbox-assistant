@@ -9,9 +9,10 @@
 ## 所需主机
 
 安装 [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon 预览版](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2)。
-之前的签名版本 `0.1.0` 已进入官方 App Hub 目录，首次收录为
-[目录序号 7，App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)。在 OctoSense 中打开 **App Hub → Search**，
+签名版本 `0.1.1` 已进入官方 App Hub 目录
+（[目录序号 10，App Hub #133](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/133)）。在 OctoSense 中打开 **App Hub → Search**，
 搜索 **Inbox Assistant**，审阅权限后依次点击 **Get → Install → Open**。
+`v0.1.1` 及之前的 `v0.1.0` 标签保持不变。
 
 旧版 Shell 与独立 `card-host` 不提供这些 OAuth／Gmail／代理服务。本仓库只包含
 脚本应用包，不含独立桌面程序。
@@ -90,3 +91,6 @@ Google 登录与应用代理同意分别控制。允许代理后，保持收件�
 记录已在 `review/` 中提供；结构检查通过和发布者签名仍不等于官方目录准入。
 
 本次包哈希变化还包括通知 schema、代理／技能指令；原始 UI、模板和截图保持不变。`review/SOURCE-AUDIT.json` 是 0.1.0 的历史来源记录，不验证本次新包。
+
+[收录后目录记录](review/CATALOG-0.1.1.json) 验证默认公开目录、签名包与列表资源。
+它只增加发布证据，不增加原生、模型或真实服务验收声明。标签中的发布记录仍保留签名时的历史状态。

@@ -10,11 +10,11 @@ for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.1` (p
 ## Required host
 
 Install the [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon preview](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2).
-The previous signed `0.1.0` bundle is available in the official App Hub catalog
-(first admission: [sequence 7, App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)). In OctoSense, open
+The signed `0.1.1` bundle is available in the official App Hub catalog
+([sequence 10, App Hub #133](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/133)). In OctoSense, open
 **App Hub → Search**, search **Inbox Assistant**, then choose **Get → Install → Open**
-after reviewing the requested permissions. The publisher-signed `0.1.1` update still needs catalog admission before that
-installation path serves it; use the immutable `v0.1.0` tag for the previous release.
+after reviewing the requested permissions. The `v0.1.1` release tag and previous
+`v0.1.0` tag remain immutable.
 
 Older shells and standalone `card-host` do not provide the OAuth/Gmail/agent
 services. This repository contains the script bundle, not a desktop executable.
@@ -119,3 +119,8 @@ workspace. Application and template UI bytes and original screenshots are
 unchanged. No new live Gmail, sending or model-performance claim follows from
 this declaration change. Run `python3 -m unittest discover -s tests -v` for the
 release-contract checks and the matching Hub gate for structural admission.
+
+The [post-admission catalog receipt](review/CATALOG-0.1.1.json) verifies the default
+public catalog, signed pack and listing assets. This adds publication evidence,
+not new native, model or live-provider acceptance. The tagged release record
+remains the historical record from signing time.
