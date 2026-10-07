@@ -9,16 +9,18 @@ for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.0`.
 
 ## Required host
 
-Use the connected-services integration from [OctoSense #347](https://github.com/OctoSense-org/OctoSense/pull/347)
-and [App Hub #119](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/119).
+Install the [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon preview](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2).
+This app's signed `0.1.0` bundle is available in the official App Hub catalog
+(first admission: [sequence 7, App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)). In OctoSense, open
+**App Hub → Search**, search **Inbox Assistant**, then choose **Get → Install → Open**
+after reviewing the requested permissions.
+
 Older shells and standalone `card-host` do not provide the OAuth/Gmail/agent
-services. This repository contains a script bundle, not a desktop executable
-or a replacement for the host services. Admission or hosting is not catalog
-approval, and this preview is not a claim that a released host supports it.
+services. This repository contains the script bundle, not a desktop executable.
 
 The host needs a registered Google desktop OAuth client, enabled Gmail API and
 applicable Google consent/test-user configuration. See the
-[versioned host setup guide](https://github.com/OctoSense-org/OctoSense/blob/26b9fe9fa51ef3c1fe6f833743144a2e12cf54e3/crates/oauth-service/README.md).
+[versioned host setup guide](https://github.com/OctoSense-org/OctoSense/blob/desktop-v0.1.0-beta.2/crates/oauth-service/README.md).
 There is no separate OctoSense account. Connect Google uses the host/browser;
 this app receives only an account-bound handle, never your password or tokens.
 

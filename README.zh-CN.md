@@ -8,14 +8,16 @@
 
 ## 所需主机
 
-需要 [OctoSense #347](https://github.com/OctoSense-org/OctoSense/pull/347) 和
-[App Hub #119](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/119) 的连接服务
-集成。旧版 Shell 与独立 `card-host` 不提供这些 OAuth／Gmail／代理服务。本仓库
-是脚本应用包，不含独立桌面程序或主机原生服务。通过校验、托管或提交审核不等于
-已进入应用目录，也不代表已发布的主机版本均可运行。
+安装 [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon 预览版](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2)。
+本应用签名版本 `0.1.0` 已进入官方 App Hub 目录，首次收录为
+[目录序号 7，App Hub #125](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/125)。在 OctoSense 中打开 **App Hub → Search**，
+搜索 **Inbox Assistant**，审阅权限后依次点击 **Get → Install → Open**。
+
+旧版 Shell 与独立 `card-host` 不提供这些 OAuth／Gmail／代理服务。本仓库只包含
+脚本应用包，不含独立桌面程序。
 
 主机需配置 Google 桌面 OAuth 客户端、Gmail API 和适用的同意／测试用户设置，
-参见[固定版本的配置说明](https://github.com/OctoSense-org/OctoSense/blob/26b9fe9fa51ef3c1fe6f833743144a2e12cf54e3/crates/oauth-service/README.md)。
+参见[固定版本的配置说明](https://github.com/OctoSense-org/OctoSense/blob/desktop-v0.1.0-beta.2/crates/oauth-service/README.md)。
 无需另建 OctoSense 账户；Connect Google 使用主机／浏览器授权，应用只接收绑定
 账户的句柄，不接收密码或令牌。
 
