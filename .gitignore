@@ -1,0 +1,21 @@
+# Local builds, run profiles, scan packets and private data
+/build/
+/target/
+/.local-state/
+/evidence/
+/profiles/
+/private/
+/.env
+/.env.*
+**/__pycache__/
+*.pyc
+*.log
+*.key
+*.pem
+*.p12
+*.pfx
+*.token
+*credentials*.json
+*oauth-client*.json
+*provider-profile*.json
+.DS_Store

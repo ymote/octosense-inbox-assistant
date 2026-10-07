@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "id": "ymote",
+  "algorithm": "Ed25519",
+  "public_key": "dbda2ca2b6376e8a4bb9d011d6f9aab0f2953021ab9e433215fa1094828761bc"
+}

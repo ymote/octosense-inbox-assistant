@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "source_repository": "https://github.com/OctoSense-org/OctoScript-App-Design-Flow",
+  "source_commit": "5b0fde7ed0e9e4131751d16f55ba3d8a3180dd95",
+  "source_subdirectory": "examples/connected-apps/inbox",
+  "copy_method": "allowlisted tracked git archive; regular files only; no ignored/untracked source copied",
+  "app_id": "org.octosense.samples.inbox",
+  "version": "0.1.0",
+  "unchanged_sha256": {
+    "BRIEF.md": "d850c81c8d57863ae7ee09b106b841df4ee520ed8568a704138ffc3d2b3ab48a",
+    "CLAUDE.md": "fb8321a39617579885cebd535e9dd234eb198c32a3e184fb1e38a5c6b79e4fef",
+    "GEMINI.md": "ce61b6ece6187ec4d3211630c7ea1172c05a75f18760f7d5274357e288cfc1ca",
+    "build_bundle.py": "3baab77b5c6039fb3834ba1159af1798d3f991e54c5c03d13ee34a9d4e563e6d",
+    "bundle/AGENT.md": "71980af7c9da5cbcb8e3b93b43b9a890ab2100206c8ed0b2a6c2d4a4a1f31ac9",
+    "bundle/assets/icon.svg": "d84fe698d55b652e58d36e498fb856cfe14559611253d7942c3f87a978912a40",
+    "bundle/glance-workspace.splash": "5d30c155080c6f78bd5687fcdcc533c366ff6f04cd77db77d834d0d9e2cf6162",
+    "bundle/main.splash": "42b2827a168cd74b1c945f1e567ced6380e934a9b68fbcd125c219fcb015d6b1",
+    "bundle/screenshots/01-main.png": "422674f253483ebc7f132a3084b859000c6ecc775b93186a6355e84c93b22ba9",
+    "bundle/screenshots/02-chat.png": "0fac34428a8d345a8db37955ac6f1372a06750e50ab66c4e5ec174a3d4497df0",
+    "bundle/skills/incoming-mail-triage/SKILL.md": "6a0c9be41271adcfc84c7b6617b5d5dea1f8f5fec9f9ae3c24423cb66e1f2329",
+    "bundle/skills/incoming-mail-triage/manifest.json": "d44cdaa9404a542710ed9a732065a2030b6eef0b1ddba3bcaeb11aa6bbfbc633",
+    "bundle/tools.json": "49c74641c862730a39275423f9f9a4e0a18c03e33abcbb36505e2cd92b641136",
+    "launch_integrated.py": "68b3c4d56eaeee4643f93bd88c740b84275c4fba03e75cfed43f07a748cdfed0",
+    "soak.py": "145744fe5181989fe25c6f83332fc076c83cb711d76b937a8ca586ade1504bbb",
+    "src/workspace.splash": "ece2eb566336509468ed20cb066a98127f2134c34b1ae61c7726ffc2b0b2ab96"
+  },
+  "packaging_modified": {
+    ".gitignore": {
+      "upstream_sha256": "b8444ad7a75c8055a90e2f171c5ccb71d3ce957673d8b6fe80f03bf135f8207e",
+      "packaged_sha256_before_publisher_signature": "c5aa93aacd43331135f559b4879237ba8d9661efcd943729473522db66398ead"
+    },
+    "AGENTS.md": {
+      "upstream_sha256": "777346949c7caec7df53fb207ab306777fbc385468f52bc2c608fe7749921b95",
+      "packaged_sha256_before_publisher_signature": "b8604ba98dcb95a78ee6043f7b70c0a6373afa36255f73a8ab199c9ecdadadf6"
+    },
+    "README.md": {
+      "upstream_sha256": "62e4451224f77ff32f44f7f13dc4ce9208361c8db6cb5c773795b4bf029f178b",
+      "packaged_sha256_before_publisher_signature": "4e19374ecaa082f3c0a29dea72141962d2cf4e9bf009465f56f72aa94e414f0e"
+    },
+    "README.zh-CN.md": {
+      "upstream_sha256": "e9cc9996bd3c52ab96c5d2f078252161ce7ec3c22b8697d638cf5b504e705125",
+      "packaged_sha256_before_publisher_signature": "032a165de0bfb84379677a84f0f4996a9971dcf4967143e7d6340c2b1e68dee5"
+    },
+    "bundle/listing.json": {
+      "upstream_sha256": "e25834b3d44d2525566fde04c01196db8bf1c52cdaa324f67788439d6e4038a3",
+      "packaged_sha256_before_publisher_signature": "f220d571a3e232f16b5598f39a81b9fdcf1602075a4b0e467069e83fa1242eb1"
+    },
+    "bundle/manifest.json": {
+      "upstream_sha256": "6476cdc11d1075e426e046ae7d43342356676290f91d243d7a48a2e6f83c4a1c",
+      "packaged_sha256_before_publisher_signature": "272b57a462937ee4e76053001e4309b6d7124125c5a488223a43fe658ad9be51"
+    },
+    "collect_integrated.py": {
+      "upstream_sha256": "2f00a5d1a07611feb23e6edb9e5bad2166e841a66ef5dac1642293e542f0cfd2",
+      "packaged_sha256_before_publisher_signature": "3554d8f5759e54427a21b6022dadbb122b3caa7cf49fb03d4c4c79432904fe9b"
+    },
+    "verify_native.py": {
+      "upstream_sha256": "80b30f77f63d2579b31e60b55097c8b343a4c4ab105a983c2ff30528f15e8637",
+      "packaged_sha256_before_publisher_signature": "8eb1e090ff8470d162612d4b5dc5492a04f3f330f4a5e336d422130a086968db"
+    }
+  },
+  "unsigned_bundle_digest": "dc8c4d215e1aa28b86752f8632d028588d30e8775ebad6f52a48a943b7780040",
+  "manifest_hash_scope": "Pre-signing packaging hash only; publisher signing changes manifest bytes. Root release metadata records the final manifest/signature.",
+  "historical_evidence_scope": "Immutable Flow commit contains original source/binary/digest receipts, not re-labelled as this package.",
+  "excluded": [
+    "ignored profiles and credentials",
+    "private/raw runtime logs",
+    "build directories and generated scan packets",
+    "untracked workspace files",
+    "historical evidence binaries/captures outside the two listing PNGs"
+  ]
+}

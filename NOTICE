@@ -1,0 +1,10 @@
+Inbox Assistant
+Derived from OctoScript-App-Design-Flow
+Copyright 2026 The OctoSense Authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+Standalone packaging and publisher documentation: ymote, 2026.
+
+The original app code, agent guidance, skill, SVG icon and fictional native
+screenshots are retained. No upstream font directories or runtime binaries
+are redistributed here. See ATTRIBUTION.md for the exact source revision.

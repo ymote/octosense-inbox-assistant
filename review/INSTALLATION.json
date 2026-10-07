@@ -1,0 +1,74 @@
+{
+  "apps": [
+    {
+      "accounts": true,
+      "app": "org.octosense.samples.githubnotes",
+      "bundle_digest": "d5565438b78e01b98baf268661087b7efd0f5c01799f4841daa140955f82a13b",
+      "capabilities": [
+        "auth",
+        "github",
+        "storage"
+      ],
+      "cross_app_staging_refused": true,
+      "direct_network_hosts": [],
+      "fresh_store_reopen": true,
+      "modified_source_refused": true,
+      "signed_install": true
+    },
+    {
+      "accounts": true,
+      "app": "org.octosense.samples.inbox",
+      "bundle_digest": "dc8c4d215e1aa28b86752f8632d028588d30e8775ebad6f52a48a943b7780040",
+      "capabilities": [
+        "auth",
+        "glance",
+        "gmail",
+        "model",
+        "octos.session.open",
+        "octos.turn.start",
+        "storage"
+      ],
+      "cross_app_staging_refused": true,
+      "direct_network_hosts": [],
+      "fresh_store_reopen": true,
+      "modified_source_refused": true,
+      "signed_install": true
+    },
+    {
+      "accounts": true,
+      "app": "org.octosense.samples.googlecalendar",
+      "bundle_digest": "3e262601ebb6092fda6bb10862b92d05a641cb76f84c9e037f25296eda69459a",
+      "capabilities": [
+        "auth",
+        "gcalendar",
+        "glance",
+        "octos.session.open",
+        "octos.turn.start",
+        "storage"
+      ],
+      "cross_app_staging_refused": true,
+      "direct_network_hosts": [],
+      "fresh_store_reopen": true,
+      "modified_source_refused": true,
+      "signed_install": true
+    }
+  ],
+  "cleanup": "temporary fixture removed and checked",
+  "input_bundles_unchanged": true,
+  "keys": "ephemeral memory only",
+  "not_verified": [
+    "public catalog publication",
+    "provider OAuth",
+    "live provider reads/writes",
+    "Android runtime"
+  ],
+  "production_catalog_modified": false,
+  "proof": "private signed catalog installation",
+  "result": "pass",
+  "separate_storage_jails": true,
+  "unsigned_catalog_refused": true,
+  "untrusted_anchor_refused": true,
+  "installer_sha256": "a2959bea204b0213e705ce7162c3c14766b00b0e1b15536a23554a08b26c06e4",
+  "runtime_revision": "26b9fe9fa51ef3c1fe6f833743144a2e12cf54e3",
+  "signature_boundary": "The installer signs temporary copies with ephemeral fixture keys. Original ymote signatures are checked separately in GATE.txt/GATE.json; input bundles remain byte-identical."
+}
