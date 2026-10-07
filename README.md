@@ -11,8 +11,10 @@ This branch contains an **unsigned, unpublished `0.1.2-ux.1` layout candidate**.
 Message context scrolls with the email body; Reply gives the editor the available
 space, with Details, Save and Review together below it. Details reveals the
 editable recipient and subject. App and Glance use the same controller.
-Phone acceptance is pending; the listing screenshots still show the older UI.
-See [candidate scope and validation](review/UX-CANDIDATE.md).
+A private Android candidate has completed the bounded checks described below;
+the listing screenshots still show the older UI. The earlier
+[candidate scope and validation](review/UX-CANDIDATE.md) records the pre-device
+checkpoint, not the later phone result.
 
 ## Required host
 
@@ -63,9 +65,32 @@ shared-draft editing, review cancellation, blocked automated approval and cold
 restoration. **Two instrument frame-submission errors remain unresolved.**
 Functional completion is not a clean rendering/performance pass.
 
+### Private Android candidate check
+
+A privately signed `0.1.2-ux.1` candidate using this branch’s
+[main/template UI bytes at dfe3bfcf](https://github.com/ymote/octosense-inbox-assistant/commit/dfe3bfcfce87d920fcaa54c84ec16f53645f7a23)
+completed 30 OnePlus 6 cycles over 622.5 seconds on the follow-up runtime
+`1042f2a0bf592e6b613f4589ea15d13739929387`. Exact drafts survived multiline
+ASCII/Enter editing, Reply/Chat switching, native review, automated-send refusal,
+Cancel and cold restart. All 30 expected body hashes were independently
+reproduced; 13 of 78 original captures were visually reviewed. A separate
+16-line review reached its final line and retained the exact draft on Cancel.
+
+A separate real configured DeepSeek run processed fresh **synthetic** mail:
+clinic mail generated a notification, the newsletter stayed quiet, and Chat
+changed the saved reply from 10:30 to 10:45. Zero emails were sent. The soak
+itself made no model calls. Initial ineffective review-scroll gestures remain
+recorded; this is no performance or flawless-instrumentation claim.
+
+These are private Android compatibility checks, not acceptance of the published
+`0.1.1` bundle or the desktop beta.2 runtime. The private signature/metadata
+differs from this unsigned candidate, and no new release or catalog promotion
+has occurred. Unicode composition, theme/orientation soaking and leak-free
+claims remain outside this evidence.
+
 Live Google OAuth, real Gmail reads/sends/delivery and physical send approval
-remain unverified. Android’s Google adapter is missing; no Android, Windows
-or Linux platform claim is made. Cross-app Calendar booking, attachments,
+remain unverified. Android’s Google adapter is missing; no advertised Android,
+Windows or Linux platform support is claimed. Cross-app Calendar booking, attachments,
 Reply All, rich-text replies, pagination beyond the first 30 rows and shared
 system-memory promotion are not implemented in this app.
 
