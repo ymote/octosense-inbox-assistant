@@ -5,7 +5,14 @@ English | [简体中文](README.zh-CN.md)
 A macOS **developer preview** for OctoSense: read Gmail, edit one reply shared
 by Email / Reply / Chat, and review the exact saved message in the host’s
 native approval sheet. Its optional app agent selectively creates Glance cards
-for relevant new mail. App ID: `org.octosense.samples.inbox`, version `0.1.1` (publisher-signed preview).
+for relevant new mail. App ID: `org.octosense.samples.inbox`, published version `0.1.1` (publisher-signed preview).
+
+This branch contains an **unsigned, unpublished `0.1.2-ux.1` layout candidate**.
+Message context scrolls with the email body; Reply gives the editor the available
+space, with Details, Save and Review together below it. Details reveals the
+editable recipient and subject. App and Glance use the same controller.
+Phone acceptance is pending; the listing screenshots still show the older UI.
+See [candidate scope and validation](review/UX-CANDIDATE.md).
 
 ## Required host
 
@@ -62,20 +69,21 @@ or Linux platform claim is made. Cross-app Calendar booking, attachments,
 Reply All, rich-text replies, pagination beyond the first 30 rows and shared
 system-memory promotion are not implemented in this app.
 
-This version changes the notification schema, agent/skill guidance and release
-metadata. The unchanged application/template UI bytes and original screenshots
-do not make historical tests evidence for this new bundle digest.
+Published version `0.1.1` changed the notification schema, agent/skill guidance
+and release metadata. Its unchanged application/template UI bytes and original
+screenshots do not make historical tests evidence for the 0.1.1 bundle digest.
 [Provenance](ATTRIBUTION.md) and [0.1.0 source audit](review/SOURCE-AUDIT.json) distinguish
 unchanged application bytes from the new package. No historical run is relabelled
-as a test of the new signed release.
+as a test of a different signed release.
 
 ## Verify a published package
 
-Read `public_key` from `publisher.json` into `YMOTE_PUBLIC_KEY`, then check the
-unchanged release bytes:
+Check out the immutable release in a separate directory first. Read `public_key`
+from that checkout’s `publisher.json` into `YMOTE_PUBLIC_KEY`, then verify it:
 
 ```sh
-"$HUB" check bundle --publisher-key "ymote=$YMOTE_PUBLIC_KEY"
+git worktree add --detach ../inbox-release-0.1.1 v0.1.1
+"$HUB" check ../inbox-release-0.1.1/bundle --publisher-key "ymote=$YMOTE_PUBLIC_KEY"
 ```
 
 Do not run `stamp` on a release just to make verification pass. An unsigned gate
@@ -83,8 +91,9 @@ is not a substitute for verifying its publisher signature.
 
 ## Develop and review
 
-Work on an explicitly unsigned development copy (remove only
-`integrity.signature` from that copy's manifest before regenerating).
+This branch is already an explicitly unsigned development copy. When starting
+from a signed tag, remove only `integrity.signature` from the development copy's
+manifest before regenerating.
 Edit `src/workspace.splash`, then regenerate and check with the matching Hub:
 
 ```sh
@@ -95,7 +104,7 @@ mkdir -p build
 "$HUB" scan bundle --packet build/review.json
 ```
 
-Signed verification is recorded in [review/GATE.txt](review/GATE.txt),
+Historical `0.1.1` signed verification is recorded in [review/GATE.txt](review/GATE.txt),
 [review/RELEASE.json](review/RELEASE.json) and the eight [scan questions](review/QUESTIONS.json).
 Only `bundle/` is submitted. Keep model profiles, accounts, captures from real
 mail, signing keys and generated scan packets outside Git.
@@ -109,14 +118,15 @@ Publisher: [ymote](https://github.com/ymote). [Support](https://github.com/ymote
 [Privacy](PRIVACY.md) · [Review answers](review/ANSWERS.md) · [Apache-2.0](LICENSE).
 Do not post private messages, credentials or unredacted logs in public issues.
 
-## 0.1.1 contract correction
+## Published 0.1.1 contract correction
 
 The notification tool now requires the admitted `glance-workspace.splash`
 template plus `initial.message`, title, summary and the notify decision. It
 accepts no `script`, `source` or `data` alternative. The agent chooses relevance
 and content; the signed template supplies the existing Email / Reply / Chat
-workspace. Application and template UI bytes and original screenshots are
-unchanged. No new live Gmail, sending or model-performance claim follows from
+workspace. In that `0.1.1` release, application/template UI bytes and original
+screenshots remained unchanged from `0.1.0`. No new live Gmail, sending or
+model-performance claim follows from
 this declaration change. Run `python3 -m unittest discover -s tests -v` for the
 release-contract checks and the matching Hub gate for structural admission.
 

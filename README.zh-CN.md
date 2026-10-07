@@ -4,7 +4,12 @@
 
 这是 OctoSense 的 macOS **开发预览应用**。通过主机读取 Gmail，Email／Reply／Chat
 共用一份已保存草稿；发送前由主机原生界面审核完整内容。可选应用代理针对重要
-新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，版本 `0.1.1`（发布者已签名预览）。
+新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，已发布版本 `0.1.1`（发布者已签名预览）。
+
+此分支是**尚未签名、尚未发布的 `0.1.2-ux.1` 布局候选版**。邮件标题、发件人与正文
+一起滚动；Reply 将可用空间留给正文编辑器，下方集中放置 Details、Save 与 Review。
+Details 可展开编辑收件人和主题。应用与 Glance 共用同一控制器。手机验收尚未完成，
+列表截图仍是旧版界面。参见[候选版范围与验证](review/UX-CANDIDATE.md)。
 
 ## 所需主机
 
@@ -53,22 +58,25 @@ Google 登录与应用代理同意分别控制。允许代理后，保持收件�
 应用日历预约、附件、全部回复、富文本、超过首批 30 行的分页和共享系统记忆
 汇总均不在本应用已实现范围内。
 
-本次 0.1.1 调整通知 schema、代理／技能指导与发布元数据；应用／模板界面和原始
-截图保持不变。应用摘要因此发生变化，历史测试并非这个新摘要的执行证据。[来源说明](ATTRIBUTION.md)与
+已发布的 0.1.1 调整了通知 schema、代理／技能指导与发布元数据；应用／模板界面和原始
+截图在该版本保持不变。应用摘要因此发生变化，历史测试并非 0.1.1 摘要的执行证据。[来源说明](ATTRIBUTION.md)与
 [源码核对](review/SOURCE-AUDIT.json)记录该边界，不把旧测试改称为新签名发布验证。
 
 ## 验证发布包
 
-最终签名检查见 [review/GATE.txt](review/GATE.txt)、[发布记录](review/RELEASE.json)及
+0.1.1 的历史签名检查见 [review/GATE.txt](review/GATE.txt)、[发布记录](review/RELEASE.json)及
 [八项扫描问题](review/QUESTIONS.json)；官方目录准入仍是独立步骤。
 
-从 `publisher.json` 的 `public_key` 读取公钥至 `YMOTE_PUBLIC_KEY`，执行
-`"$HUB" check bundle --publisher-key "ymote=$YMOTE_PUBLIC_KEY"` 验证未修改的
-发布包。不要为了通过检查而给发布包重新 `stamp`；无签名检查不能替代签名验证。
+先运行 `git worktree add --detach ../inbox-release-0.1.1 v0.1.1` 创建独立的
+不可变发布检出，再从该目录 `publisher.json` 的 `public_key` 读取公钥至
+`YMOTE_PUBLIC_KEY`，执行
+`"$HUB" check ../inbox-release-0.1.1/bundle --publisher-key "ymote=$YMOTE_PUBLIC_KEY"`
+验证发布包。不要为了通过检查而给发布包重新 `stamp`；无签名检查不能替代签名验证。
 
 ## 开发
 
-先建立明确的无签名开发副本，只从该副本的 manifest 删除 `integrity.signature`。
+此分支已是明确的无签名开发副本。从签名标签开始开发时，只从开发副本的
+manifest 删除 `integrity.signature`。
 修改 `src/workspace.splash` 后执行 `python3 build_bundle.py`，使用匹配的 Hub
 运行 `stamp`、`check --allow-unsigned` 和 `scan --packet build/review.json`。只
 提交 `bundle/`；密钥、账户／模型配置、真实邮件截图及扫描包不应进入 Git。
@@ -78,19 +86,19 @@ Google 登录与应用代理同意分别控制。允许代理后，保持收件�
 [隐私](PRIVACY.zh-CN.md)；[审核问答](review/ANSWERS.md)；[Apache-2.0](LICENSE)。
 请勿在公开问题中发送私人邮件、凭据或未清理的日志。
 
-## 0.1.1 契约修正
+## 已发布的 0.1.1 契约修正
 
 通知工具现在必须提供已准入的 `glance-workspace.splash` 模板、`initial.message`、
 标题、摘要及是否通知的决定，不再接受 `script`、`source` 或 `data` 替代参数。
 代理负责重要性与内容判断，已签名模板提供原有 Email／Reply／Chat 工作区。
-应用／模板界面及原始截图字节不变；这次声明修正不构成新的真实 Gmail、发送或
-模型性能验证。当前版本已由发布者签名，仍需目录准入后才会替换商店版本。
+在 0.1.1 发布中，应用／模板界面及原始截图与 0.1.0 的字节一致；这次声明修正不构成
+新的真实 Gmail、发送或模型性能验证。0.1.1 已签名并进入官方目录；本分支候选版尚未发布。
 运行 `python3 -m unittest discover -s tests -v` 检查发布契约，再运行匹配 Hub 的准入检查。
 
-旧 `0.1.0` 签名记录保存在 `review/releases/0.1.0/`，不用于验证 `0.1.1`。新的签名
-记录已在 `review/` 中提供；结构检查通过和发布者签名仍不等于官方目录准入。
+旧 `0.1.0` 签名记录保存在 `review/releases/0.1.0/`，不用于验证 `0.1.1`。签名
+0.1.1 记录已在 `review/` 中提供；它们不验证当前无签名候选版。
 
-本次包哈希变化还包括通知 schema、代理／技能指令；原始 UI、模板和截图保持不变。`review/SOURCE-AUDIT.json` 是 0.1.0 的历史来源记录，不验证本次新包。
+0.1.1 的包哈希变化包括通知 schema、代理／技能指令；该版本的原始 UI、模板和截图保持不变。`review/SOURCE-AUDIT.json` 是 0.1.0 的历史来源记录，不验证本次新包。
 
 [收录后目录记录](review/CATALOG-0.1.1.json) 验证默认公开目录、签名包与列表资源。
 它只增加发布证据，不增加原生、模型或真实服务验收声明。标签中的发布记录仍保留签名时的历史状态。
