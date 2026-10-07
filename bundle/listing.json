@@ -22,7 +22,7 @@
     "support": "https://github.com/ymote/octosense-inbox-assistant/issues",
     "privacy_policy_url": "https://github.com/ymote/octosense-inbox-assistant/blob/main/PRIVACY.md"
   },
-  "release_notes": "0.1.1: require the admitted Glance workspace template and initial message data for agent notifications; remove executable source alternatives. Email/Reply/Chat UI, original screenshots and physical send approval are unchanged. Preview and live-provider limits still apply.",
+  "release_notes": "Unpublished 0.1.2-ux.1 layout candidate: scroll message context together; reserve Reply space for the editor and group Details/Save/Review. A privately signed Android candidate with identical app and Glance UI bytes completed 30 cycles over 622.5 seconds using synthetic Gmail, including shared-draft editing, automated-send refusal, Cancel and cold restoration. Zero emails were sent; live Gmail, physical sending and MiniMax remain unverified. Agent tools and physical approval are unchanged. Existing screenshots are historical; publisher signing and publication remain pending. Listings remain macOS-only; these Android compatibility checks do not add advertised Android support or change the official 0.1.1 release.",
   "age_rating": "all",
   "license": "Apache-2.0"
 }

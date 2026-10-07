@@ -1,6 +1,10 @@
 import hashlib
 import json
 from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,13 +39,30 @@ class ReleaseContract(unittest.TestCase):
             self.assertFalse(tool['shareable'])
             self.assertNotIn(tool['host_method'], ('gmail.send', 'gmail.draft.review', 'gmail.sheet.close'))
         manifest = read('manifest.json')
-        self.assertEqual(manifest['version'], '0.1.1')
+        self.assertEqual(manifest['version'], '0.1.2-ux.1')
+        self.assertNotIn('signature', manifest['integrity'])
         self.assertEqual(manifest['agent']['triggers']['events'], ['inbox.new_message'])
         self.assertTrue((BUNDLE / manifest['agent']['instructions']).is_file())
 
-    def test_ui_and_original_pixels_are_unchanged(self):
-        prior = json.loads((ROOT / 'review/releases/0.1.0/RELEASE.json').read_text())['release_files_sha256']
-        for name in ('main.splash', 'glance-workspace.splash', 'screenshots/01-main.png', 'screenshots/02-chat.png'):
+    def test_agent_contract_and_historical_screenshots_are_unchanged(self):
+        prior = json.loads((ROOT / 'review/RELEASE.json').read_text())['release_files_sha256']
+        for name in ('AGENT.md', 'tools.json', 'skills/incoming-mail-triage/SKILL.md',
+                     'skills/incoming-mail-triage/manifest.json',
+                     'screenshots/01-main.png', 'screenshots/02-chat.png'):
             self.assertEqual(hashlib.sha256((BUNDLE / name).read_bytes()).hexdigest(), prior[name], name)
+
+    def test_app_and_glance_are_generated_from_the_same_current_source(self):
+        # Generate in isolation: a stale template must fail without changing
+        # the checked-in bundle, manifest authority or historical signature.
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory)
+            (target / 'src').mkdir()
+            (target / 'bundle').mkdir()
+            for name in ('build_bundle.py', 'src/workspace.splash', 'bundle/manifest.json'):
+                shutil.copyfile(ROOT / name, target / name)
+            subprocess.run([sys.executable, str(target / 'build_bundle.py')], check=True)
+            for name in ('main.splash', 'glance-workspace.splash'):
+                self.assertEqual((target / 'bundle' / name).read_bytes(), (BUNDLE / name).read_bytes(), name)
+            self.assertLessEqual((target / 'bundle/glance-workspace.splash').stat().st_size, 14 * 1024)
 
 if __name__ == '__main__': unittest.main()

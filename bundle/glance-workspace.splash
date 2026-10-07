@@ -7,6 +7,7 @@ let local_drafts = {}
 let dirty = false
 let saving = false
 let tab = "message"
+let details_open = false
 let history = []
 let page_token = ""
 let generation = 0
@@ -17,6 +18,7 @@ fn notice(s){ ui.status.set_text(s) }
 fn save_local(){fs.write("inbox-local.json", {drafts:local_drafts connection:connection}.to_json())}
 fn paint(){
 ui.inbox.set_visible(selected == nil)
+ui.app_heading.set_visible(selected == nil)
 if initial == nil {ui.disconnect_button.set_visible(!demo) ui.monitor_status.set_visible(!demo)}
 ui.workspace.set_visible(selected != nil)
 if selected == nil {ui.rows.render() return}
@@ -28,6 +30,8 @@ ui.message_body.set_text(shown_body)
 ui.message_view.set_visible(tab == "message")
 ui.reply_view.set_visible(tab == "reply")
 ui.chat_view.set_visible(tab == "chat")
+ui.reply_details.set_visible(details_open)
+ui.details_toggle.set_text(if details_open {"Hide"}else{"Details"})
 ui.message_tab.set_text(if tab == "message" {"• Email"}else{"Email"})
 ui.reply_tab.set_text(if tab == "reply" {"• Reply"}else{"Reply"})
 ui.chat_tab.set_text(if tab == "chat" {"• Chat"}else{"Chat"})
@@ -35,7 +39,6 @@ if draft != nil && !dirty {
 ui.recipient.set_text(draft.reply.to)
 ui.reply_subject.set_text(draft.reply.subject)
 ui.reply_body.set_text(draft.reply.body)
-ui.draft_note.set_text("Saved revision " + draft.revision + " · " + draft.status)
 }
 ui.chat_log.render()
 }
@@ -56,8 +59,9 @@ if r.is_ok && r.data != nil {connection=r.data.handle demo=false selected=nil dr
 }
 }
 
-fn open_message(message){selected=message draft=nil tab="message" history=[] dirty=false paint() notice(if demo {"Fictional message · no email can be sent"}else{"Read the message, then compose a reply"})}
-fn mark_dirty(){if draft != nil {edit_generation=edit_generation+1 dirty=true ui.draft_note.set_text("Unsaved changes")}}
+fn open_message(message){selected=message draft=nil tab="message" details_open=false history=[] dirty=false paint() notice(if demo {"Fictional message · no email can be sent"}else{"Read the message, then compose a reply"})}
+fn toggle_details(){details_open=!details_open ui.reply_details.set_visible(details_open) ui.details_toggle.set_text(if details_open {"Hide"}else{"Details"})}
+fn mark_dirty(){if draft != nil {edit_generation=edit_generation+1 dirty=true notice("Unsaved changes")}}
 fn open_reply(show){
 if draft != nil {if show {tab="reply" paint()} return}
 if demo {
@@ -71,7 +75,7 @@ notice("Opening this message's saved draft…")
 host.request("gmail.draft.open", {connection:bound message_id:id}, fn(r){
 if selected == nil || selected.id != id || connection != bound {return}
 if !r.is_ok {notice(r.error) return}
-draft=r.data dirty=false if show {tab="reply"} paint() notice("One saved draft is shared by Reply and Chat")
+draft=r.data dirty=false if show {tab="reply"} paint() notice("Reply and Chat share this draft")
 })
 }
 fn persist(next){
@@ -96,7 +100,7 @@ dirty=false next()
 }
 fn choose_tab(name){persist(fn(){tab=name if name == "reply" || name == "chat" {if draft == nil {open_reply(name=="reply")}} paint()})}
 fn back(){if card_source == "" {choose_tab("message") return} persist(fn(){selected=nil draft=nil history=[] paint() notice(if demo {"Fictional inbox · local editing only"}else{"Connected Gmail"})})}
-fn save(){persist(fn(){paint() notice("Saved. Review always uses this exact revision.")})}
+fn save(){persist(fn(){paint() if draft != nil {notice("Saved revision "+draft.revision+" · ready for review")}})}
 fn review(){persist(fn(){
 if draft == nil {return}
 if demo {notice("Fictional draft saved. Live sending needs a connected account and physical host approval.") return}
@@ -175,7 +179,7 @@ let Action=ButtonFlat{height:44 padding:Inset{left:12 right:12} draw_bg +:{borde
 let Primary=Action{draw_bg +:{color:accent color_hover:#x3670eb color_down:#x194cb9} draw_text +:{color:#xffffff color_hover:#xffffff color_down:#xffffff}}
 let Field=TextInput{width:Fill height:44 draw_bg +:{color:#xf0f3f8 color_hover:#xf0f3f8 color_focus:#xf0f3f8 color_empty:#xf0f3f8 border_radius:8} draw_text +:{color:ink color_hover:ink color_focus:ink color_empty:muted color_empty_hover:muted color_empty_focus:muted}}
 SolidView{width:Fill height:Fill flow:Down padding:16 spacing:10 draw_bg.color:#xffffff
-View{width:Fill height:Fit flow:Right align:Align{y:0.5}
+app_heading := View{width:Fill height:Fit flow:Right align:Align{y:0.5}
 Label{width:Fill text:"Inbox Assistant" draw_text.color:ink draw_text.text_style:theme.font_bold{font_size:23}}
 }
 status := Label{width:Fill text:"Opening inbox…" draw_text.color:muted draw_text.text_style.font_size:12}
@@ -187,10 +191,12 @@ message_tab := Action{text:"Email" on_click:||choose_tab("message")}
 reply_tab := Action{text:"Reply" on_click:||choose_tab("reply")}
 chat_tab := Action{text:"Chat" on_click:||choose_tab("chat")}
 }
+message_view := View{width:Fill height:Fill flow:Down spacing:10
+message_scroll := ScrollYView{width:Fill height:Fill flow:Down spacing:10
 subject := Label{width:Fill text:"" draw_text.color:ink draw_text.text_style:theme.font_bold{font_size:18}}
 sender := Label{width:Fill text:"" draw_text.color:muted draw_text.text_style.font_size:12}
-message_view := View{width:Fill height:Fill flow:Down spacing:10
-ScrollYView{width:Fill height:Fill flow:Down message_body := Label{width:Fill text:"" draw_text.color:ink draw_text.text_style.font_size:16}}
+message_body := Label{width:Fill text:"" draw_text.color:ink draw_text.text_style.font_size:16}
+}
 View{width:Fill height:Fit flow:Right spacing:8
 Primary{text:"Compose reply" on_click:||open_reply(true)}
 Action{text:"Pin" on_click:||publish(false)}
@@ -198,13 +204,17 @@ Action{text:"AI sort" on_click:||classify()}
 }
 }
 reply_view := View{width:Fill height:Fill flow:Down spacing:8 visible:false
+reply_scroll := ScrollYView{width:Fill height:Fill flow:Down spacing:8
+reply_details := View{width:Fill height:Fit flow:Down spacing:8 visible:false
 recipient := Field{empty_text:"To" on_change:|v|mark_dirty()}
 reply_subject := Field{empty_text:"Subject" on_change:|v|mark_dirty()}
+}
 reply_body := Field{height:Fill is_multiline:true empty_text:"Write your reply…" on_change:|v|mark_dirty()}
-draft_note := Label{width:Fill text:"" draw_text.color:muted draw_text.text_style.font_size:12}
+}
 View{width:Fill height:Fit flow:Right spacing:8
-Action{width:Fill text:"Save draft" on_click:||save()}
-Primary{width:Fill text:"Review & Send" on_click:||review()}
+details_toggle := Action{text:"Details" on_click:||toggle_details()}
+save_button := Action{text:"Save" on_click:||save()}
+review_button := Primary{width:Fill text:"Review & Send" on_click:||review()}
 }
 }
 chat_view := View{width:Fill height:Fill flow:Down spacing:10 visible:false
