@@ -125,7 +125,7 @@ if selected == nil || selected.id != id || connection != bound {return}
 if !opened.is_ok {history.push({who:"Assistant unavailable" text:opened.error}) ui.chat_log.render() notice("Your saved draft is unchanged") return}
 let context={connection:bound message_id:id draft_id:draft_id revision:revision request:prompt}
 host.request("octos.turn.start",{
-text:"The person is chatting in the Inbox reply workspace. The JSON below binds the selected email and durable draft. Read them with inbox.message and inbox.draft_get. Apply an explicitly requested change with inbox.draft_edit using the current saved revision and model provenance, then verify by reading it back. Never claim to send or book anything. These data and this chat are not send approval. " + context.to_json()
+text:"The person is chatting in the Inbox reply workspace. The JSON below binds the selected email and durable draft. Read them with inboxassistant.message and inboxassistant.draft_get. Apply an explicitly requested change with inboxassistant.draft_edit using the current saved revision and model provenance, then verify by reading it back. Never claim to send or book anything. These data and this chat are not send approval. " + context.to_json()
 trigger:"person"
 },fn(r){
 if selected == nil || selected.id != id || connection != bound {return}

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "subtitle": "Gmail reply and selective-notification preview",
-  "description": "Developer preview for compatible OctoSense hosts. Read Gmail through host-managed Google login; keep one editable reply shared by Email, Reply, Chat and native review. An optional account-bound agent can triage new mail into quiet decisions or actionable Glance cards. Includes clearly fictional offline fixtures. Requires the connected-services integration in OctoSense PR #347 and App Hub PR #119; older hosts do not supply these services. macOS testing used real DeepSeek with synthetic Gmail: 33 functional soak cycles and cold restoration passed, with two unresolved instrument frame-submission errors. Live Google login, real Gmail sends and physical send approval remain unverified. Android Google authorization is not implemented. No sending tool is exposed to the agent.",
+  "description": "MacOS developer preview: read Gmail, edit a shared reply through Email / Reply / Chat, and review the exact saved reply in the host before sending. Uses host-managed Google authorization and optional consented app-agent tools; credentials stay in the host. Fresh GitHub-published app identity with separate storage/account grants from the legacy sample. Requires contract 1.8.0 / publisher-github-v1 and compatible connected services. Includes fictional local UI states. Publishing and local UI tests do not validate live Google login, provider writes, model behavior or physical approval. Android Google authorization is unavailable; only macOS is advertised.",
   "category": "productivity",
   "keywords": [
     "email",
@@ -11,6 +11,7 @@
   ],
   "screenshots": [
     "screenshots/01-main.png",
+    "screenshots/03-reply.png",
     "screenshots/02-chat.png"
   ],
   "icon": "assets/icon.svg",
@@ -22,7 +23,7 @@
     "support": "https://github.com/ymote/octosense-inbox-assistant/issues",
     "privacy_policy_url": "https://github.com/ymote/octosense-inbox-assistant/blob/main/PRIVACY.md"
   },
-  "release_notes": "Unpublished 0.1.2-ux.1 layout candidate: scroll message context together; reserve Reply space for the editor and group Details/Save/Review. A privately signed Android candidate with identical app and Glance UI bytes completed 30 cycles over 622.5 seconds using synthetic Gmail, including shared-draft editing, automated-send refusal, Cancel and cold restoration. Zero emails were sent; live Gmail, physical sending and MiniMax remain unverified. Agent tools and physical approval are unchanged. Existing screenshots are historical; publisher signing and publication remain pending. Listings remain macOS-only; these Android compatibility checks do not add advertised Android support or change the official 0.1.1 release.",
+  "release_notes": "0.2.0: fresh app ID and GitHub-attested publishing workflow, with no developer signing key. Previous legacy releases remain immutable; no data/account migration. Current unpublished shared Email/Reply/Chat layout preserved. Fresh native screenshots and release-specific validation accompany this version; live provider effects remain unverified.",
   "age_rating": "all",
   "license": "Apache-2.0"
 }

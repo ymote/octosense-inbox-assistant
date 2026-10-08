@@ -1,0 +1,3 @@
+io.github.ymote.inboxassistant 0.2.0 — PASSED
+  [warning] publisher-signature: unsigned: accountability rests on the hub alone
+  grants: capabilities {"auth", "glance", "gmail", "model", "octos.session.open", "octos.turn.start", "storage"}, hosts {}, storage 16777216 bytes, agent read-only

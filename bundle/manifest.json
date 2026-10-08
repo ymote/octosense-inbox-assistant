@@ -2,25 +2,21 @@
   "agent": {
     "background": true,
     "instructions": "AGENT.md",
-    "max_iterations": null,
     "model": {
-      "local_only": false,
       "needs": [
         "tool_calling"
-      ],
-      "tier": "standard"
+      ]
     },
     "profile": "read-only",
     "skills": [
       "incoming-mail-triage"
     ],
-    "token_budget": null,
     "tools": [
       "ask_user_question"
     ],
     "triggers": {
       "events": [
-        "inbox.new_message"
+        "inboxassistant.new_message"
       ]
     }
   },
@@ -37,18 +33,14 @@
     "instruction_budget": null,
     "memory_bytes": null
   },
-  "id": "org.octosense.samples.inbox",
+  "id": "io.github.ymote.inboxassistant",
   "integrity": {
-    "bundle_blake3": "7dd27f553bab4a0afc1a4b2f267483813c52d3d5b98bb1c48ac78ad1cb53f89c"
+    "bundle_blake3": "c2dc15b78ec1088f8157a76718537e1300441fefa55a730fa29ab0514ff7830e"
   },
   "name": "Inbox Assistant",
-  "network": {
-    "hosts": []
-  },
   "schema": 1,
   "storage": {
-    "accounts": true,
-    "max_bytes": null
+    "accounts": true
   },
-  "version": "0.1.2-ux.1"
+  "version": "0.2.0"
 }

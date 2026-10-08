@@ -1,122 +1,84 @@
-# Inbox Assistant
+# OctoSense Inbox Assistant
 
 [English](README.md) | 简体中文
 
-这是 OctoSense 的 macOS **开发预览应用**。通过主机读取 Gmail，Email／Reply／Chat
-共用一份已保存草稿；发送前由主机原生界面审核完整内容。可选应用代理针对重要
-新邮件生成 Glance 卡片。应用 ID 为 `org.octosense.samples.inbox`，已发布版本 `0.1.1`（发布者已签名预览）。
+这是 **macOS 开发预览版**，用于读取 Gmail，在 Email／Reply／Chat 中编辑同一份草稿，并在发送前审阅宿主保存的完整内容。
+发布者为 [ymote](https://github.com/ymote)，新应用 ID 为 `io.github.ymote.inboxassistant`，
+可编辑源码版本为 **0.2.0**。这是独立示例，不是 Google 官方产品。
 
-此分支是**尚未签名、尚未发布的 `0.1.2-ux.1` 布局候选版**。邮件标题、发件人与正文
-一起滚动；Reply 将可用空间留给正文编辑器，下方集中放置 Details、Save 与 Review。
-Details 可展开编辑收件人和主题。应用与 Glance 共用同一控制器。私有 Android 候选包已完成
-下文所述的有限范围验证，列表截图仍是旧版界面。[候选版范围与验证](review/UX-CANDIDATE.md)
-记录的是上机前的检查点，并非后续手机测试结果。
+新版本通过 GitHub 发布证明确认发布者身份，无需开发者签名私钥或仓库签名机密。
+它与旧应用 `org.octosense.samples.inbox` 分别安装，账户授权和本地数据不会自动迁移。
+旧 `v0.1.0`／`v0.1.1` 标签、签名和验收记录不变；`publisher.json` 仅描述历史身份。
 
-## 所需主机
+## 安装与连接
 
-安装 [OctoSense desktop-v0.1.0-beta.2 macOS Apple Silicon 预览版](https://github.com/OctoSense-org/OctoSense/releases/tag/desktop-v0.1.0-beta.2)。
-签名版本 `0.1.1` 已进入官方 App Hub 目录
-（[目录序号 10，App Hub #133](https://github.com/OctoSense-org/OctoSense-App-Hub/pull/133)）。在 OctoSense 中打开 **App Hub → Search**，
-搜索 **Inbox Assistant**，审阅权限后依次点击 **Get → Install → Open**。
-`v0.1.1` 及之前的 `v0.1.0` 标签保持不变。
+新版本需要 **应用契约 1.8.0／`publisher-github-v1`** 及兼容的 OctoSense
+连接服务主机。旧 desktop beta.2 无法安装 GitHub 证明发行包。创建标签不等于
+App Hub 收录；先查看提交 issue 的目录／发行状态。已收录且主机兼容时，使用
+**App Hub → Search → Inbox Assistant → Get → Install → Open**，审阅请求的权限。
 
-旧版 Shell 与独立 `card-host` 不提供这些 OAuth／Gmail／代理服务。本仓库只包含
-脚本应用包，不含独立桌面程序。
+Google 登录由宿主浏览器／提供方流程完成，应用不收集密码。宿主维护者配置
+OAuth 客户端和对应 API，普通用户无需注册开发者客户端，也无需另建 OctoSense
+账户。参见[宿主 OAuth 指南](https://github.com/OctoSense-org/OctoSense/blob/main/crates/oauth-service/README.md)。
+应用仅获得绑定应用与账户的不透明句柄，不接收凭据。
 
-主机需配置 Google 桌面 OAuth 客户端、Gmail API 和适用的同意／测试用户设置，
-参见[固定版本的配置说明](https://github.com/OctoSense-org/OctoSense/blob/desktop-v0.1.0-beta.2/crates/oauth-service/README.md)。
-无需另建 OctoSense 账户；Connect Google 使用主机／浏览器授权，应用只接收绑定
-账户的句柄，不接收密码或令牌。
+**发布流程测试不验证真实 Google 登录、读取／写入或物理确认。** Android Google
+授权仍不可用，本版本不宣称支持 Android、Linux 或 Windows。独立 `card-host`
+只能验证本地界面和明确的服务不可用状态。
 
 ## 使用
 
-初始收件箱和两张商店截图均使用明确标注的虚构数据。无需登录即可编辑，不能
-发送邮件。兼容主机上可以连接 Google，手工读取和编辑不依赖模型。AI sort、
-Chat 和后台分流会将相关数据发送至主机配置的模型，详见[隐私说明](PRIVACY.zh-CN.md)。
+1. 无需登录即可使用明确标注的虚构收件箱。选中邮件后点击 **Compose reply**；
+   虚构草稿不能发送邮件。
+2. **Reply** 编辑正文，**Details** 展开收件人和主题，**Save** 保存本地修改。
+   Email／Reply／Chat 共用同一份草稿。
+3. 已配置宿主上 **Connect Google** 启用手工读取／编辑。使用 AI sort、Chat 或
+   后台分流前请阅读[隐私说明](PRIVACY.zh-CN.md)。
+4. 应用代理同意与 Google 登录独立。启用后建立只关注新邮件的基线，在宿主允许
+   执行时通常每五分钟检查；不会为全部旧邮件补发通知。账户代理判断哪些邮件值得
+   生成 Glance 卡片，营销邮件通常静默。**静默邮件也可能发送给模型以判断重要性。**
+5. **Review & Send** 展示宿主保存的账户、收件人、主题和正文。只有原生宿主批准
+   控件上的物理操作能授权发送，模型和自动输入不能批准。Gmail 接受不等于送达。
 
-Google 登录与应用代理同意分别控制。允许代理后，保持收件箱列表打开，等待
-**New-mail baseline ready**；此本地状态每三秒刷新。主机通常在允许执行时每五
-分钟检查新邮件，不为全部旧邮件补发通知。基线就绪不等于代理目前仍已启用。
+代理只有账户内私有的读取、草稿和通知工具，没有发送别名。本版本不实现跨应用
+日历预订、附件、Reply All、富文本回复、超过前 30 条的分页或系统记忆提升。
+AI sort 是独立的前台模型操作；关闭后台代理不等于禁用该按钮。
 
-打开相关 Glance 卡片，直接编辑 Reply，或通过 Chat 修改同一份草稿。请核对
-实际保存内容，再打开 **Review & Send**；只有主机原生控件的物理批准可以授权
-提交，模型和自动点击不能批准。Gmail 接受提交不等于收件人已收到。
+## 发布和本地检查
 
-默认关注医疗、物流、日程、学校／工作和家庭事项，普通营销通常静默。**静默邮件
-也需要先由代理／模型读取，才能判断相关性。** Pin 是手工操作；AI sort 是前台
-辅助功能，与自动新邮件事件不同。
+可编辑 `bundle/` 不含发行证明。[GitHub 工作流](.github/workflows/publish-app.yml)
+固定已审阅的 Hub 工具版本。完成源码测试和审阅后推送全新 `v<manifest.version>`
+标签，GitHub 准备、证明、验证并上传 `app.bundle.pack.json`。不要把已封存包覆盖
+回开发源码，不要移动已有标签。
 
-## 验证边界
+```sh
+python3 -m unittest discover -s tests -v
+python3 build_bundle.py
+"$HUB" stamp bundle
+"$HUB" check bundle --allow-unsigned
+mkdir -p build
+"$HUB" scan bundle --packet build/review.json
+```
 
-历史[集成证据](https://github.com/OctoSense-org/OctoScript-App-Design-Flow/blob/5b0fde7ed0e9e4131751d16f55ba3d8a3180dd95/examples/connected-apps/inbox/evidence/integrated/README.md)
-及 [Mac 持续测试](https://github.com/OctoSense-org/OctoScript-App-Design-Flow/blob/5b0fde7ed0e9e4131751d16f55ba3d8a3180dd95/examples/connected-apps/inbox/evidence/soak/README.md)
-使用真实 DeepSeek 和模拟 Gmail，完成 610 秒内 33 轮功能流程、共享草稿、审核
-取消、阻止自动批准及冷启动恢复。**仍存在两次尚未解决的帧提交确认错误**，不能
-把功能完成称为无渲染／性能问题的验收。
+通过 [App Hub issue](https://github.com/OctoSense-org/OctoSense-App-Hub/issues) 请求
+发布，提供 ID、源码、权限、截图和审核答案。issue 可先于标签创建；完成后补充
+成功工作流、确切提交和包哈希。管理员审阅和目录发布与创建发行版是不同步骤。
+下载包使用 `hub publisher-unpack`／`hub publisher-verify` 验证，不重新 stamp
+或移除证明。
 
-### 私有 Android 候选包验证
+## 证据边界
 
-使用本分支 [dfe3bfcf 的 main/template UI 字节](https://github.com/ymote/octosense-inbox-assistant/commit/dfe3bfcfce87d920fcaa54c84ec16f53645f7a23)
-的私有签名 `0.1.2-ux.1` 候选包，在后续修复 runtime
-`1042f2a0bf592e6b613f4589ea15d13739929387` 上完成 OnePlus 6 共 30 轮、622.5 秒测试。
-多行 ASCII／Enter 编辑、Reply/Chat 切换、原生审核、拒绝自动发送、取消及冷启动后，
-草稿内容均保持一致。独立复算全部 30 份正文哈希，并逐张审阅 78 张原图中的 13 张。
-另行确认 16 行长正文可以滚动到最后一行，取消后保留完整草稿。
+本版本保留当前功能代码，使用新身份及发布流程。`review/`、已有 `evidence/`
+和旧标签中的记录保留原始源码／二进制身份，不能当作 0.2.0 的新验收。发行前只用
+新实际原生截图替换列表图，并逐张审视。
 
-独立的真实 DeepSeek 调用处理了新到达的**模拟邮件**：医疗邮件生成通知，简报保持静默，
-Chat 将实际保存的回复时间从 10:30 改为 10:45。发送邮件数为零；持续测试本身不调用模型。
-最初无效的审核滚动操作仍被保留，不据此宣称性能达标或自动测试没有问题。
+Email／Reply／Chat 布局来自未发布的 `0.1.2-ux.1`，没有重做控制器。历史 Mac
+测试使用模拟 Gmail 和 DeepSeek，仍保留两次帧提交错误。私有 Android 候选曾完成
+30 轮流程，但这不代表 Android Google 支持或本包验收。参见[布局历史](review/UX-CANDIDATE.md)
+和[固定版本 README](https://github.com/ymote/octosense-inbox-assistant/blob/5025af76a4928b526111ea35b1b1300588ca6bd8/README.md)。
 
-这是私有 Android 兼容性验证，不代表已发布 `0.1.1` 包或桌面 beta.2 runtime 的验收。
-私有包的签名／元数据与本分支无签名候选包不同，尚未发布新版或更新官方目录。
-Unicode 输入法组合、主题／旋转长测及无内存泄漏结论均不在本次证据范围内。
+连接账户或启用 AI 前请阅读[隐私说明](PRIVACY.zh-CN.md)。
+[公开支持](https://github.com/ymote/octosense-inbox-assistant/issues) 中不要提交私人邮件／事件、凭据
+或原始日志。采用 [Apache-2.0](LICENSE)。
 
-真实 Google OAuth、Gmail 读取／发送／送达及物理发送批准尚未验证。Android
-的 Google 授权适配器尚未实现，不声明正式支持 Android、Windows 或 Linux。跨
-应用日历预约、附件、全部回复、富文本、超过首批 30 行的分页和共享系统记忆
-汇总均不在本应用已实现范围内。
-
-已发布的 0.1.1 调整了通知 schema、代理／技能指导与发布元数据；应用／模板界面和原始
-截图在该版本保持不变。应用摘要因此发生变化，历史测试并非 0.1.1 摘要的执行证据。[来源说明](ATTRIBUTION.md)与
-[源码核对](review/SOURCE-AUDIT.json)记录该边界，不把旧测试改称为新签名发布验证。
-
-## 验证发布包
-
-0.1.1 的历史签名检查见 [review/GATE.txt](review/GATE.txt)、[发布记录](review/RELEASE.json)及
-[八项扫描问题](review/QUESTIONS.json)；官方目录准入仍是独立步骤。
-
-先运行 `git worktree add --detach ../inbox-release-0.1.1 v0.1.1` 创建独立的
-不可变发布检出，再从该目录 `publisher.json` 的 `public_key` 读取公钥至
-`YMOTE_PUBLIC_KEY`，执行
-`"$HUB" check ../inbox-release-0.1.1/bundle --publisher-key "ymote=$YMOTE_PUBLIC_KEY"`
-验证发布包。不要为了通过检查而给发布包重新 `stamp`；无签名检查不能替代签名验证。
-
-## 开发
-
-此分支已是明确的无签名开发副本。从签名标签开始开发时，只从开发副本的
-manifest 删除 `integrity.signature`。
-修改 `src/workspace.splash` 后执行 `python3 build_bundle.py`，使用匹配的 Hub
-运行 `stamp`、`check --allow-unsigned` 和 `scan --packet build/review.json`。只
-提交 `bundle/`；密钥、账户／模型配置、真实邮件截图及扫描包不应进入 Git。
-测试脚本需显式指定自有隐藏实例和隔离路径，不会批准发送。完整命令见英文说明。
-
-发布者：[ymote](https://github.com/ymote)；[反馈](https://github.com/ymote/octosense-inbox-assistant/issues)；
-[隐私](PRIVACY.zh-CN.md)；[审核问答](review/ANSWERS.md)；[Apache-2.0](LICENSE)。
-请勿在公开问题中发送私人邮件、凭据或未清理的日志。
-
-## 已发布的 0.1.1 契约修正
-
-通知工具现在必须提供已准入的 `glance-workspace.splash` 模板、`initial.message`、
-标题、摘要及是否通知的决定，不再接受 `script`、`source` 或 `data` 替代参数。
-代理负责重要性与内容判断，已签名模板提供原有 Email／Reply／Chat 工作区。
-在 0.1.1 发布中，应用／模板界面及原始截图与 0.1.0 的字节一致；这次声明修正不构成
-新的真实 Gmail、发送或模型性能验证。0.1.1 已签名并进入官方目录；本分支候选版尚未发布。
-运行 `python3 -m unittest discover -s tests -v` 检查发布契约，再运行匹配 Hub 的准入检查。
-
-旧 `0.1.0` 签名记录保存在 `review/releases/0.1.0/`，不用于验证 `0.1.1`。签名
-0.1.1 记录已在 `review/` 中提供；它们不验证当前无签名候选版。
-
-0.1.1 的包哈希变化包括通知 schema、代理／技能指令；该版本的原始 UI、模板和截图保持不变。`review/SOURCE-AUDIT.json` 是 0.1.0 的历史来源记录，不验证本次新包。
-
-[收录后目录记录](review/CATALOG-0.1.1.json) 验证默认公开目录、签名包与列表资源。
-它只增加发布证据，不增加原生、模型或真实服务验收声明。标签中的发布记录仍保留签名时的历史状态。
+当前源码检查：[原生离线记录](review/releases/0.2.0/NATIVE.json)、[准入输出](review/releases/0.2.0/GATE.txt)、[八项审核答案](review/ANSWERS.md)。

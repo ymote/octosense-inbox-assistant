@@ -2,7 +2,7 @@
   "schema": 1,
   "tools": [
     {
-      "name": "inbox.messages",
+      "name": "inboxassistant.messages",
       "description": "List message IDs for this account and selected Gmail label. Use page_token when present.",
       "input_schema": {
         "type": "object",
@@ -36,7 +36,7 @@
       "host_method": "gmail.messages"
     },
     {
-      "name": "inbox.message",
+      "name": "inboxassistant.message",
       "description": "Read the bound email as plain text, with an explicit notice for omitted attachments.",
       "input_schema": {
         "type": "object",
@@ -67,7 +67,7 @@
       "host_method": "gmail.message"
     },
     {
-      "name": "inbox.draft_open",
+      "name": "inboxassistant.draft_open",
       "description": "Open or restore the one authoritative local reply draft for this email. Does not send.",
       "input_schema": {
         "type": "object",
@@ -98,7 +98,7 @@
       "host_method": "gmail.draft.open"
     },
     {
-      "name": "inbox.draft_get",
+      "name": "inboxassistant.draft_get",
       "description": "Read the exact saved draft body, revision and submission state.",
       "input_schema": {
         "type": "object",
@@ -129,7 +129,7 @@
       "host_method": "gmail.draft.get"
     },
     {
-      "name": "inbox.draft_edit",
+      "name": "inboxassistant.draft_edit",
       "description": "Save an explicitly requested draft change only against its current revision. Never authorizes sending.",
       "input_schema": {
         "type": "object",
@@ -187,7 +187,7 @@
       "host_method": "gmail.draft.edit"
     },
     {
-      "name": "inbox.event_status",
+      "name": "inboxassistant.event_status",
       "description": "Read the durable decision, if any, for this incoming Gmail event.",
       "input_schema": {
         "type": "object",
@@ -218,7 +218,7 @@
       "host_method": "gmail.event.status"
     },
     {
-      "name": "inbox.event_decide",
+      "name": "inboxassistant.event_decide",
       "description": "Record a quiet relevance decision, or acknowledge a successfully published card. Host verifies publication; prose cannot replace a receipt.",
       "input_schema": {
         "type": "object",
@@ -263,7 +263,7 @@
       "host_method": "gmail.event.decide"
     },
     {
-      "name": "inbox.notify",
+      "name": "inboxassistant.notify",
       "description": "Publish one important-email workspace using only the admitted glance-workspace.splash template and initial.message. The host binds its connection. Use the exact message ID as card_id; notify only if relevant. Executable card source is not accepted.",
       "input_schema": {
         "type": "object",
@@ -358,7 +358,7 @@
       "host_method": "glance.publish"
     },
     {
-      "name": "inbox.withdraw",
+      "name": "inboxassistant.withdraw",
       "description": "Retire a processed message card after actual completion; does not delete its draft or mail.",
       "input_schema": {
         "type": "object",
