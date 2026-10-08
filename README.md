@@ -99,4 +99,33 @@ Read [Privacy](PRIVACY.md) before connecting an account or enabling AI.
 [Support](https://github.com/ymote/octosense-inbox-assistant/issues) is public: do not post private
 messages, events, credentials or raw logs. [Apache-2.0](LICENSE).
 
-Current source check: [0.2.1 preparation](review/releases/0.2.1/PREPARATION.json), [gate](review/releases/0.2.1/GATE.txt), [eight review answers](review/ANSWERS.md). The unchanged UI has [0.2.0 offline evidence](review/releases/0.2.0/NATIVE.json) and [genuine release installation evidence](review/releases/0.2.0/PUBLISHING.json); those retain their exact tested version. The 0.2.1 workflow corrects the admission wording; its genuine update acceptance is recorded separately after publication.
+Current source check: [0.2.1 preparation](review/releases/0.2.1/PREPARATION.json), [gate](review/releases/0.2.1/GATE.txt), [eight review answers](review/ANSWERS.md). The unchanged UI has [0.2.0 offline evidence](review/releases/0.2.0/NATIVE.json) and [genuine release installation evidence](review/releases/0.2.0/PUBLISHING.json); those retain their exact tested version. The 0.2.1 workflow corrects the admission wording; its [genuine update acceptance](review/releases/0.2.1/INSTALL-UPDATE.json) passed on the exact recorded Mac host, with [original native pixels](review/releases/0.2.1/installed-update.png).
+
+## Repeat the release installation/update check
+
+Use a compatible **Mac OctoSense shell** supporting contract 1.8.0 and
+`publisher-github-v1`; the older beta.2 download is insufficient. Provide the
+actual Hub/shell binary paths and their source commits as `HUB`, `HUB_SOURCE`,
+`SHELL_BINARY` and `SHELL_SOURCE`. This test launches its own hidden profile,
+declines the optional Hub agent, and exercises only synthetic local drafts.
+It does not connect Google, call a model or perform provider writes.
+
+```sh
+TEST_ROOT=$(mktemp -d)
+mkdir -p "$TEST_ROOT/packs/v0.2.0" "$TEST_ROOT/packs/v0.2.1"
+gh release download v0.2.0 --repo ymote/octosense-inbox-assistant --dir "$TEST_ROOT/packs/v0.2.0"
+gh release download v0.2.1 --repo ymote/octosense-inbox-assistant --dir "$TEST_ROOT/packs/v0.2.1"
+python3 prepare_release_test.py --hub "$HUB" --source "$HUB_SOURCE" \
+  --packs "$TEST_ROOT/packs" --out "$TEST_ROOT/catalog"
+python3 verify_release_ui.py --app inbox --binary "$SHELL_BINARY" \
+  --source "$SHELL_SOURCE" --mirror "$TEST_ROOT/catalog" --out "$TEST_ROOT/ui"
+```
+
+The preparer verifies the genuine GitHub proofs, creates two snapshots under
+an ephemeral **local test catalog authority**, then deletes that authority's
+private keys. It does not use a developer signing key or grant official Hub
+admission. The UI driver searches, installs and opens 0.2.0, edits a draft,
+updates to 0.2.1, checks exact retained content and reopens it from Library.
+It refuses an existing output directory and stops only its own process.
+A crash or forced shutdown fails the run. Receipts and original native captures
+are kept under the temporary directory; inspect the pixels separately.
