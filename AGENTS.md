@@ -1,7 +1,7 @@
 # Working on Inbox Assistant
 
 This is a standalone publisher repository for `io.github.ymote.inboxassistant`
-(editable `0.2.0`; fresh GitHub publisher identity), derived from
+(editable `0.2.1`; fresh GitHub publisher identity), derived from
 the immutable source in [ATTRIBUTION.md](ATTRIBUTION.md).
 Read [README.md](README.md), [PRIVACY.md](PRIVACY.md), and the upstream
 [App Hub publishing contract](https://github.com/OctoSense-org/OctoSense-App-Hub/blob/main/docs/PUBLISHING.md).

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "app_id": "io.github.ymote.inboxassistant",
+  "platform": "macOS",
+  "shell_source": "5607e90b5c0ac217d6cd2d946c06dc6d2f046c00",
+  "shell_binary_sha256": "e758a27c2d07ea7e8651e953b5ec267fcb19918a9b4dc04166cc77c0de530539",
+  "catalog_authority": "ephemeral-local-legacy-not-production-v2",
+  "publisher_proof": "genuine-GitHub-tag-push",
+  "live_authentication": false,
+  "provider_writes": false,
+  "model_calls": false,
+  "personal_data_used": false,
+  "checks": [
+    "optional_hub_agent_declined",
+    "search_install_open_genuine_first_release",
+    "first:fictional_reply_edited",
+    "first:reply_chat_share_exact_saved_local_draft",
+    "first:fictional_send_refused_without_provider"
+  ],
+  "versions": [
+    "0.2.0"
+  ],
+  "visual_review": {
+    "tested_views": "passed: readable complete test strings and reachable controls; original native capture inspected",
+    "overall_ux_grade": null
+  },
+  "status": "passed",
+  "inputs": [
+    {
+      "version": "0.2.0",
+      "app_id": "io.github.ymote.inboxassistant",
+      "pack_sha256": "794e38a7d7616ec7833acb81c915b0ac66d7d60d38296a912d385f95f1597e53",
+      "catalog_sha256": "9dc40ed7b64bed7c4fdcdbd87d8610c7f3aa556716105d45b9b0853f64f9cccd",
+      "source_commit": "4f6a0677e8459813f08b308b9a01e41540725853",
+      "full_github_proof_preserved": true
+    }
+  ],
+  "owned_processes_stopped": true,
+  "release": {
+    "schema": 1,
+    "app_id": "io.github.ymote.inboxassistant",
+    "version": "0.2.0",
+    "repository": "ymote/octosense-inbox-assistant",
+    "commit": "4f6a0677e8459813f08b308b9a01e41540725853",
+    "tag": "v0.2.0",
+    "run": "37748961480",
+    "pack_sha256": "794e38a7d7616ec7833acb81c915b0ac66d7d60d38296a912d385f95f1597e53",
+    "hub_admission": "not submitted"
+  },
+  "scope": "genuine 0.2.0 release first installation and local-only editing in isolated Mac shell",
+  "official_catalog_admission": false,
+  "captures_sha256": {
+    "00-hub-agent-consent.png": "85cf624b072011cec4f3841848c3f6f714115508230eb61b026bf820811bd8aa",
+    "app-reply.png": "7131932e7f849e79f65a00907351b258029ef8290f61c265bc363c5bbc00d419",
+    "01-search.png": "27eaa03ffb9309e8f13c8e575cc886879753c3e346dcc17df9ab0acc6feceec3"
+  }
+}

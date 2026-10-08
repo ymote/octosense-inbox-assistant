@@ -23,7 +23,7 @@
     "support": "https://github.com/ymote/octosense-inbox-assistant/issues",
     "privacy_policy_url": "https://github.com/ymote/octosense-inbox-assistant/blob/main/PRIVACY.md"
   },
-  "release_notes": "0.2.0: fresh app ID and GitHub-attested publishing workflow, with no developer signing key. Previous legacy releases remain immutable; no data/account migration. Current unpublished shared Email/Reply/Chat layout preserved. Fresh native screenshots and release-specific validation accompany this version; live provider effects remain unverified.",
+  "release_notes": "0.2.1: generated release receipts now distinguish release creation from App Hub admission, and direct publishers to open or update the existing submission issue. App UI, tool permissions and storage layout are unchanged from 0.2.0. This immutable update supports verified install/update and local-draft retention checks; live Google/model/provider writes remain outside the test scope.",
   "age_rating": "all",
   "license": "Apache-2.0"
 }

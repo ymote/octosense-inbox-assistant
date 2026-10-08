@@ -35,12 +35,12 @@
   },
   "id": "io.github.ymote.inboxassistant",
   "integrity": {
-    "bundle_blake3": "c2dc15b78ec1088f8157a76718537e1300441fefa55a730fa29ab0514ff7830e"
+    "bundle_blake3": "d07595f7a3815b0c4ca396e18ab458fd41965e3d0602a15ac080ea1958a5c86c"
   },
   "name": "Inbox Assistant",
   "schema": 1,
   "storage": {
     "accounts": true
   },
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
