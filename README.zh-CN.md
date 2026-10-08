@@ -81,4 +81,19 @@ Email／Reply／Chat 布局来自未发布的 `0.1.2-ux.1`，没有重做控制�
 [公开支持](https://github.com/ymote/octosense-inbox-assistant/issues) 中不要提交私人邮件／事件、凭据
 或原始日志。采用 [Apache-2.0](LICENSE)。
 
-当前源码检查：[0.2.1 准备记录](review/releases/0.2.1/PREPARATION.json)、[准入输出](review/releases/0.2.1/GATE.txt)、[八项审核答案](review/ANSWERS.md)。界面未变；[0.2.0 离线记录](review/releases/0.2.0/NATIVE.json)和[真实发行包安装记录](review/releases/0.2.0/PUBLISHING.json)保留确切受测版本。0.2.1 修正发布工作流对目录准入的表述；真实更新验收在发行后另行记录。
+当前源码检查：[0.2.1 准备记录](review/releases/0.2.1/PREPARATION.json)、[准入输出](review/releases/0.2.1/GATE.txt)、[八项审核答案](review/ANSWERS.md)。界面未变；[0.2.0 离线记录](review/releases/0.2.0/NATIVE.json)和[真实发行包安装记录](review/releases/0.2.0/PUBLISHING.json)保留确切受测版本。0.2.1 修正发布工作流对目录准入的表述；[真实更新验收](review/releases/0.2.1/INSTALL-UPDATE.json)已在记录中的确切 Mac 宿主通过，并附[原始原生截图](review/releases/0.2.1/installed-update.png)。
+
+## 复现发行包安装／更新验收
+
+需要支持 contract 1.8.0 和 `publisher-github-v1` 的 **Mac OctoSense 宿主**，旧的
+beta.2 下载版不满足要求。将 Hub／宿主可执行文件及其确切源码提交分别设置为
+`HUB`、`HUB_SOURCE`、`SHELL_BINARY`、`SHELL_SOURCE`，然后运行英文 README 中的
+命令（本应用参数为 `--app inbox`）。测试使用独立隐藏窗口和新配置，拒绝可选的
+Hub 助手，只编辑虚构本地草稿；不连接 Google、不调用模型、不向提供商写入。
+
+`prepare_release_test.py` 验证真实 GitHub 证明，使用临时的**本地测试目录权限**
+生成两份目录快照，然后删除该目录的私钥；不需要开发者签名私钥，也不代表正式
+App Hub 准入。`verify_release_ui.py` 依次搜索、安装、打开 0.2.0，编辑草稿，更新
+到 0.2.1，验证完整内容保留，再从 Library 重新打开。输出目录必须不存在；只关闭
+自己启动的进程，崩溃或强制关闭均判为失败。临时目录保留记录和真实原生截图，
+需要另行审视像素；这些测试不等于提供商或 AI 工作流验收。

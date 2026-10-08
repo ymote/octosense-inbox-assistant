@@ -1,6 +1,6 @@
 # Current review: 0.2.1 publication guidance update
 
-See [0.2.1 source gate](releases/0.2.1/GATE.txt), [preparation](releases/0.2.1/PREPARATION.json) and [answers](ANSWERS.md). App UI, permissions and storage remain unchanged. The [0.2.0 genuine release installation](releases/0.2.0/PUBLISHING.json) is prior-version evidence; the 0.2.1 update is validated separately after release. Official catalog admission is a maintainer decision.
+See [0.2.1 source gate](releases/0.2.1/GATE.txt), [preparation](releases/0.2.1/PREPARATION.json) and [answers](ANSWERS.md). App UI, permissions and storage remain unchanged. The [0.2.0 genuine release installation](releases/0.2.0/PUBLISHING.json) is prior-version evidence; the [0.2.1 genuine update](releases/0.2.1/INSTALL-UPDATE.json) now passed, with an [original native capture](releases/0.2.1/installed-update.png). Official catalog admission is a maintainer decision.
 
 ## Historical 0.1.x records
 

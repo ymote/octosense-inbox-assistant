@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "app_id": "io.github.ymote.inboxassistant",
+  "platform": "macOS",
+  "shell_source": "5e1a8414cba4c9c3ab041b5555b6d90bcbad03bb",
+  "shell_binary_sha256": "e758a27c2d07ea7e8651e953b5ec267fcb19918a9b4dc04166cc77c0de530539",
+  "catalog_authority": "ephemeral-local-legacy-not-production-v2",
+  "publisher_proof": "genuine-GitHub-tag-push",
+  "live_authentication": false,
+  "provider_writes": false,
+  "model_calls": false,
+  "personal_data_used": false,
+  "checks": [
+    "optional_hub_agent_declined",
+    "search_install_open_genuine_first_release",
+    "first:fictional_reply_edited",
+    "first:reply_chat_share_exact_saved_local_draft",
+    "first:fictional_send_refused_without_provider",
+    "search_install_open_genuine_update",
+    "update:exact_multiline_unicode_reply_retained",
+    "update:reply_chat_share_exact_saved_local_draft",
+    "update:fictional_send_refused_without_provider",
+    "reopen_updated_app_from_library",
+    "restart:exact_multiline_unicode_reply_retained",
+    "restart:reply_chat_share_exact_saved_local_draft",
+    "restart:fictional_send_refused_without_provider"
+  ],
+  "versions": [
+    "0.2.0",
+    "0.2.1",
+    "0.2.1"
+  ],
+  "visual_review": {
+    "reviewer": "Codex; same operator as input driver, not independent/model-driven",
+    "original_native_captures_inspected": [
+      "update/01-search.png",
+      "update/app-reply.png",
+      "restart/app-reply.png"
+    ],
+    "outcome": "Tested labels and exact draft text readable; controls reachable; no numeric overall UX/soak score claimed.",
+    "published_capture": "installed-update.png"
+  },
+  "status": "passed",
+  "inputs": [
+    {
+      "version": "0.2.0",
+      "app_id": "io.github.ymote.inboxassistant",
+      "pack_sha256": "794e38a7d7616ec7833acb81c915b0ac66d7d60d38296a912d385f95f1597e53",
+      "catalog_sha256": "39e609153d8429e46e9a9654fa62a227e2e42f2997c7dcc911ace306c5e994e3",
+      "source_commit": "4f6a0677e8459813f08b308b9a01e41540725853",
+      "full_github_proof_preserved": true
+    },
+    {
+      "version": "0.2.1",
+      "app_id": "io.github.ymote.inboxassistant",
+      "pack_sha256": "1bbf8bff05e30fe33c1b7ee66f699d7bf09c9839ceeaa52c086e6427e5c88728",
+      "catalog_sha256": "3f2656b9f586197ca0892643ce2114684be7527e38915efd7811936e23b264af",
+      "source_commit": "f30f8a29fbe22507c68be15a5e737e7749abde83",
+      "full_github_proof_preserved": true
+    }
+  ],
+  "owned_processes_stopped": true,
+  "raw_driver_receipt_sha256": "11b1acaffe8a2fb0b87b582fd73b7cb79c8e9cc72325fc17b60c9654b379a4e1",
+  "driver_sha256": "e20c8f25e4c07ee76a1b1c131ee5ef539f635c566ba8f2dacff2f6bf73e5cd1b",
+  "preparer_sha256": "6c872cdb5cb237e9ea7af63b7825cfe1d6f4647338c8059e556d00d5a7e58d16",
+  "release_receipts": [
+    {
+      "schema": 1,
+      "app_id": "io.github.ymote.inboxassistant",
+      "version": "0.2.0",
+      "repository": "ymote/octosense-inbox-assistant",
+      "commit": "4f6a0677e8459813f08b308b9a01e41540725853",
+      "tag": "v0.2.0",
+      "run": "37748961480",
+      "pack_sha256": "794e38a7d7616ec7833acb81c915b0ac66d7d60d38296a912d385f95f1597e53",
+      "hub_admission": "not submitted"
+    },
+    {
+      "schema": 1,
+      "app_id": "io.github.ymote.inboxassistant",
+      "version": "0.2.1",
+      "repository": "ymote/octosense-inbox-assistant",
+      "commit": "f30f8a29fbe22507c68be15a5e737e7749abde83",
+      "tag": "v0.2.1",
+      "run": "37749881259",
+      "pack_sha256": "1bbf8bff05e30fe33c1b7ee66f699d7bf09c9839ceeaa52c086e6427e5c88728",
+      "hub_admission": "not granted by this workflow"
+    }
+  ],
+  "hub_verifier": {
+    "hub_source": "4bf77076ce75ee9897ccc247afd5de5e3abe5af5",
+    "hub_binary_sha256": "68ad3cb56c8b48dcf83f7937186b4b266648a499e9511efa2254f26d10c670c5",
+    "ephemeral_hub_private_keys_deleted": true,
+    "native_steps": [
+      "keygen",
+      "keygen",
+      "certify",
+      "publisher-unpack",
+      "publisher-verify",
+      "publish",
+      "publisher-unpack",
+      "publisher-verify",
+      "publish"
+    ]
+  },
+  "captures_sha256": {
+    "update/app-reply.png": "5460b0a9cd7618777f10f43f6a6baf673d46bd28d35aa1ce6a196d74356b419c",
+    "update/01-search.png": "537b806d7e358cd05cd2e32252a56e84d9b30e8c5952fc2ad1870e1b0495aba1",
+    "first/00-hub-agent-consent.png": "9467526e75f3e3bd0947ab8c273314d4017ba64f840eec70c81aede5adf2fcd1",
+    "first/app-reply.png": "220a67762ea61c65552441852f52a5620e95c61f98e78d828afe6836ff0c856c",
+    "first/01-search.png": "a4277b0bdee63136c6fbedb0e8af7241ffa0605d23359afc7b8e7bfa0d4d58e7",
+    "restart/app-reply.png": "6acef32797b73b7644dcda071a77a4bfdf8ff88ad81cfb546c3f0d105b84b4ba"
+  },
+  "unverified": [
+    "official GitHub-v2 catalog admission",
+    "live Google authentication",
+    "provider writes and physical approval",
+    "model/background-agent behavior",
+    "phone/Linux/Windows usability",
+    "Glance presentation",
+    "long-duration UX soak"
+  ],
+  "failure_history": "Prior first-release driver incorrectly assumed an app-agent prompt existed immediately after Open; retained failed capture showed the app did open. Driver now waits for the real app state, with no app/runtime changes.",
+  "official_catalog_publication": false
+}
