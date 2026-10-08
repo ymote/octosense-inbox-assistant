@@ -1,8 +1,6 @@
-# Current review: 0.2.0 fresh GitHub publisher
+# Current review: 0.2.1 publication guidance update
 
-See [0.2.0 source gate](releases/0.2.0/GATE.txt),
-[native validation](releases/0.2.0/NATIVE.json) and [answers](ANSWERS.md).
-Release attestation and catalog admission are separate from these source checks.
+See [0.2.1 source gate](releases/0.2.1/GATE.txt), [preparation](releases/0.2.1/PREPARATION.json) and [answers](ANSWERS.md). App UI, permissions and storage remain unchanged. The [0.2.0 genuine release installation](releases/0.2.0/PUBLISHING.json) is prior-version evidence; the 0.2.1 update is validated separately after release. Official catalog admission is a maintainer decision.
 
 ## Historical 0.1.x records
 

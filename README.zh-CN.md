@@ -4,7 +4,7 @@
 
 这是 **macOS 开发预览版**，用于读取 Gmail，在 Email／Reply／Chat 中编辑同一份草稿，并在发送前审阅宿主保存的完整内容。
 发布者为 [ymote](https://github.com/ymote)，新应用 ID 为 `io.github.ymote.inboxassistant`，
-可编辑源码版本为 **0.2.0**。这是独立示例，不是 Google 官方产品。
+可编辑源码版本为 **0.2.1**。这是独立示例，不是 Google 官方产品。
 
 新版本通过 GitHub 发布证明确认发布者身份，无需开发者签名私钥或仓库签名机密。
 它与旧应用 `org.octosense.samples.inbox` 分别安装，账户授权和本地数据不会自动迁移。
@@ -81,4 +81,4 @@ Email／Reply／Chat 布局来自未发布的 `0.1.2-ux.1`，没有重做控制�
 [公开支持](https://github.com/ymote/octosense-inbox-assistant/issues) 中不要提交私人邮件／事件、凭据
 或原始日志。采用 [Apache-2.0](LICENSE)。
 
-当前源码检查：[原生离线记录](review/releases/0.2.0/NATIVE.json)、[准入输出](review/releases/0.2.0/GATE.txt)、[八项审核答案](review/ANSWERS.md)。
+当前源码检查：[0.2.1 准备记录](review/releases/0.2.1/PREPARATION.json)、[准入输出](review/releases/0.2.1/GATE.txt)、[八项审核答案](review/ANSWERS.md)。界面未变；[0.2.0 离线记录](review/releases/0.2.0/NATIVE.json)和[真实发行包安装记录](review/releases/0.2.0/PUBLISHING.json)保留确切受测版本。0.2.1 修正发布工作流对目录准入的表述；真实更新验收在发行后另行记录。

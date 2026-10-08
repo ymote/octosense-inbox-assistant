@@ -2,7 +2,7 @@
 
 English | [简体中文](PRIVACY.zh-CN.md)
 
-Effective: 2026-10-08. Publisher: **ymote**. This describes the `0.2.0`
+Effective: 2026-10-08. Publisher: **ymote**. This describes the `0.2.1`
 developer-preview bundle `io.github.ymote.inboxassistant` and the matching
 connected-services host, not every service running inside OctoSense.
 

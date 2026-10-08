@@ -39,7 +39,7 @@ class ReleaseContract(unittest.TestCase):
             self.assertFalse(tool['shareable'])
             self.assertNotIn(tool['host_method'], ('gmail.send', 'gmail.draft.review', 'gmail.sheet.close'))
         manifest = read('manifest.json')
-        self.assertEqual(manifest['version'], '0.2.0')
+        self.assertEqual(manifest['version'], '0.2.1')
         self.assertNotIn('signature', manifest['integrity'])
         self.assertEqual(manifest['agent']['triggers']['events'], ['inboxassistant.new_message'])
         self.assertTrue((BUNDLE / manifest['agent']['instructions']).is_file())

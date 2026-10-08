@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "app_id": "io.github.ymote.inboxassistant",
+  "version": "0.2.1",
+  "workflow_generator": "https://github.com/OctoSense-org/OctoScript-App-Design-Flow/commit/a9a07f4031b8ce8c75675733b38362ddfba3b7ea",
+  "change": "stage-neutral publication receipt and open-or-update submission guidance",
+  "unchanged_from": "v0.2.0",
+  "ui_source_sha256": "a9bfa22481165ebb895b2833220a3cafd05be981a630d621a6206221d8820896",
+  "tools_sha256": "ccee3fb5ba4f7cd0d92f44666f9b4f8f8c73b46f237eb7f166371808ee7698f2",
+  "listing_captures": "unchanged original native 0.2.0 captures; app UI unchanged",
+  "source_gate": "GATE.txt",
+  "genuine_0_2_1_proof": false,
+  "genuine_0_2_1_update_acceptance": false,
+  "provider_writes": false,
+  "model_calls": false,
+  "official_catalog_admission": false
+}
