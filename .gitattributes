@@ -1,0 +1,2 @@
+# Preserve the exact bundle bytes on every platform.
+bundle/** -text

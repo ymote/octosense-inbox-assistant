@@ -16,7 +16,7 @@ if len(card.encode()) > 14 * 1024:
 manifest = json.loads((root / 'bundle/manifest.json').read_text())
 manifest['capabilities'] = ['storage', 'auth', 'gmail', 'model', 'glance', 'octos.session.open', 'octos.turn.start']
 manifest['storage'] = {'accounts': True}
-manifest['agent'] = {'profile':'read-only','tools':['ask_user_question'],'model':{'needs':['tool_calling']},'instructions':'AGENT.md','skills':['incoming-mail-triage'],'background':True,'triggers':{'events':['inbox.new_message']}}
+manifest['agent'] = {'profile':'read-only','tools':['ask_user_question'],'model':{'needs':['tool_calling']},'instructions':'AGENT.md','skills':['incoming-mail-triage'],'background':True,'triggers':{'events':['inboxassistant.new_message']}}
 (root / 'bundle/glance-workspace.splash').write_text(card)
 manifest.pop('network', None)
 (root / 'bundle/manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

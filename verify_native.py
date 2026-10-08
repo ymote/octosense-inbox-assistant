@@ -29,7 +29,12 @@ def text(identity,value):
 def capture(name):
     data=call('g');path=Path(data['png']);(out/name).write_bytes(path.read_bytes())
     (out/(name+'.snapshot.json')).write_text(json.dumps(snap(),indent=2)+'\n')
-def contains(text):assert any(text in w.get('t','') for w in snap()),text
+def contains(text):
+    until=time.monotonic()+5
+    while time.monotonic()<until:
+        if any(text in w.get('t','') for w in snap()):return
+        time.sleep(.03)
+    raise AssertionError(text)
 expected='Please deliver Thursday at 10:30 AM Pacific.\nRing the bell twice. 谢谢。'
 assert find(identity='status')['t']=='Fictional inbox · local editing only'
 click(text='Open message',index=1)

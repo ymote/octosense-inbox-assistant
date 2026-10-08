@@ -1,3 +1,11 @@
+# Current review: 0.2.0 fresh GitHub publisher
+
+See [0.2.0 source gate](releases/0.2.0/GATE.txt),
+[native validation](releases/0.2.0/NATIVE.json) and [answers](ANSWERS.md).
+Release attestation and catalog admission are separate from these source checks.
+
+## Historical 0.1.x records
+
 # Release review records
 
 **0.1.1 is publisher-signed.** `GATE.txt` / `GATE.json` verify the final signed

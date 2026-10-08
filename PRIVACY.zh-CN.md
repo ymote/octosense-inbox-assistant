@@ -2,8 +2,8 @@
 
 [English](PRIVACY.md) | 简体中文
 
-生效日期：2026-10-07。发布者：**ymote**。本说明适用于开发预览包
-`org.octosense.samples.inbox` 0.1.1 和匹配的连接服务主机，不涵盖 OctoSense
+生效日期：2026-10-08。发布者：**ymote**。本说明适用于开发预览包
+`io.github.ymote.inboxassistant` `0.2.0` 和匹配的连接服务主机，不涵盖 OctoSense
 中运行的所有其他服务。
 
 ## 数据及用途

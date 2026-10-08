@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "app_id": "io.github.ymote.inboxassistant",
+  "version": "0.2.0",
+  "scope": "editable-source-offline-native-ui",
+  "author": "existing sample implementation with identity-specific bindings updated by Codex",
+  "driver_and_pixel_reviewer": "Codex, same operator; not independent or model-autonomous validation",
+  "platform": "macOS",
+  "window_logical": [
+    412,
+    892
+  ],
+  "native_build": "debug card-host; no performance claim",
+  "host_source": "90780ca5",
+  "makepad_revision": "32d6415fb7476345ad36ee4f98d6f844d1f07fd2",
+  "renderer_revision": "33dea2f1f3ad3f1346a219aa8cf6e91b31361e23",
+  "binary_sha256": "c6da88e9405df98bd2d0e916688b3ba6877f83d3e428fae43008cafe526a8c99",
+  "source_ui_sha256": "a9bfa22481165ebb895b2833220a3cafd05be981a630d621a6206221d8820896",
+  "glance_ui_sha256": "dd6a07399d9f93157d9274b317f20caf89a923fdc86f7dd98bfa36b046775a86",
+  "driver_sha256": "bce174f928338b65ee5a0abf7e65cbdd2092612efae26557542554cc869f6229",
+  "checks_passed": true,
+  "driver_receipts": [
+    {
+      "recorded_at": "2026-10-08T08:08:29.627288+00:00",
+      "binary_sha256": "c6da88e9405df98bd2d0e916688b3ba6877f83d3e428fae43008cafe526a8c99",
+      "driver_sha256": "bce174f928338b65ee5a0abf7e65cbdd2092612efae26557542554cc869f6229",
+      "template_sha256": "dd6a07399d9f93157d9274b317f20caf89a923fdc86f7dd98bfa36b046775a86",
+      "screenshots_sha256": {
+        "01-inbox.png": "94498e1b634dd1093f7f44c022f13af6865512abb370f9a40d80c2b420963810",
+        "02-reply.png": "390ef024c0f69c1365956b9c6407c9847ead254e62ec0b0f947ceb5302cc5bfc",
+        "03-chat-unavailable.png": "283eabccd38c922c57a9806b1c360ce8612d51ac11f6a5972f49bd8a1e95ecb5"
+      },
+      "source_sha256": "a9bfa22481165ebb895b2833220a3cafd05be981a630d621a6206221d8820896",
+      "manifest_sha256": "2278db82aad5ccc5cc9c3c90ff12c6fea921ff940cd18f1768ea7059854f7b3e",
+      "driver": "Codex via Makepad native instrument",
+      "fixture": "fictional sample data only",
+      "platform": "macOS hidden card-host 412x892 logical",
+      "restart_check": false,
+      "checks": "passed; pixel review reported separately",
+      "live_oauth": false,
+      "live_model": false,
+      "gmail_delivery": false,
+      "android": false
+    },
+    {
+      "recorded_at": "2026-10-08T08:09:48.459237+00:00",
+      "binary_sha256": "c6da88e9405df98bd2d0e916688b3ba6877f83d3e428fae43008cafe526a8c99",
+      "driver_sha256": "bce174f928338b65ee5a0abf7e65cbdd2092612efae26557542554cc869f6229",
+      "template_sha256": "dd6a07399d9f93157d9274b317f20caf89a923fdc86f7dd98bfa36b046775a86",
+      "screenshots_sha256": {
+        "04-restart.png": "d3755666c7c2c034e0f0b839f1f95d338155b1a8698a5e02f2a8178db2854ae5"
+      },
+      "source_sha256": "a9bfa22481165ebb895b2833220a3cafd05be981a630d621a6206221d8820896",
+      "manifest_sha256": "2278db82aad5ccc5cc9c3c90ff12c6fea921ff940cd18f1768ea7059854f7b3e",
+      "driver": "Codex via Makepad native instrument",
+      "fixture": "fictional sample data only",
+      "platform": "macOS hidden card-host 412x892 logical",
+      "restart_check": true,
+      "checks": "passed; pixel review reported separately",
+      "live_oauth": false,
+      "live_model": false,
+      "gmail_delivery": false,
+      "android": false
+    }
+  ],
+  "listed_original_captures": {
+    "screenshots/01-main.png": "94498e1b634dd1093f7f44c022f13af6865512abb370f9a40d80c2b420963810",
+    "screenshots/03-reply.png": "390ef024c0f69c1365956b9c6407c9847ead254e62ec0b0f947ceb5302cc5bfc",
+    "screenshots/02-chat.png": "283eabccd38c922c57a9806b1c360ce8612d51ac11f6a5972f49bd8a1e95ecb5"
+  },
+  "visual_review": {
+    "passed_for_tested_local_views": true,
+    "criteria": [
+      "complete tested labels/text readable",
+      "primary controls reachable",
+      "editor and notes reachable by native scrolling",
+      "empty/unavailable states truthful"
+    ],
+    "limits": "Not an overall UX grade, long soak, keyboard-on-phone, theme or orientation pass."
+  },
+  "retained_failure": "Initial contains() asserted before the asynchronous unavailable-service callback; later native snapshot showed the expected failure. Added bounded state wait and reran with unchanged app UI.",
+  "owned_processes_stopped": true,
+  "live_google": false,
+  "provider_writes": false,
+  "model_used": false,
+  "phone": false,
+  "release_proof_verified": false,
+  "catalog_admission": false,
+  "digest_boundary": "Original native receipts bind UI and then-current unsigned manifest; final listing captures are included by the later source gate. The GitHub workflow seals the final release separately."
+}

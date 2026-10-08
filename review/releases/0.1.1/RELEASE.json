@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "app_id": "org.octosense.samples.inbox",
+  "version": "0.1.1",
+  "publisher": "ymote",
+  "public_key": "dbda2ca2b6376e8a4bb9d011d6f9aab0f2953021ab9e433215fa1094828761bc",
+  "bundle_digest": "af1ea9d980e45ef22dc566b3ed5855abe3006cc0a557cbb9b61c9fcfad47c1f7",
+  "signed_gate_passed": true,
+  "scan_questions": 8,
+  "source_tag": "v0.1.1",
+  "candidate_source_url": "https://github.com/ymote/octosense-inbox-assistant/commit/9c20c44ec0dc5faf0fd5ceab6bce84a5fe7df424",
+  "hub_source_url": "https://github.com/OctoSense-org/OctoSense-App-Hub/commit/b0856ed2792de87db87866b62d33a0206d8f3c34",
+  "hub_binary_sha256": "f86581c545eb4af5aec8b48c5adc9eff5131c239217f508cdb62ae88d7d7bf2b",
+  "catalog_review_base": {
+    "sequence": 7,
+    "sha256": "bc03502649724e6a603ea5d99e62981a3387a5b07d5e8f1195ea340036b61f2d"
+  },
+  "catalog_published": true,
+  "release_files_sha256": {
+    "AGENT.md": "423f618b5e87f225098958b64a76dd1a0f7ec59a7d982fcfca7bde39160638f7",
+    "assets/icon.svg": "d84fe698d55b652e58d36e498fb856cfe14559611253d7942c3f87a978912a40",
+    "glance-workspace.splash": "5d30c155080c6f78bd5687fcdcc533c366ff6f04cd77db77d834d0d9e2cf6162",
+    "listing.json": "f33a03d7b5f39c804ea37f7fdcc4348395e6a8343ee9303a3f75a1ebafce7ae4",
+    "main.splash": "42b2827a168cd74b1c945f1e567ced6380e934a9b68fbcd125c219fcb015d6b1",
+    "manifest.json": "7493bae425be17539a323ce644bbc4702ef7d42666724633698bf1d2653be6ab",
+    "screenshots/01-main.png": "422674f253483ebc7f132a3084b859000c6ecc775b93186a6355e84c93b22ba9",
+    "screenshots/02-chat.png": "0fac34428a8d345a8db37955ac6f1372a06750e50ab66c4e5ec174a3d4497df0",
+    "skills/incoming-mail-triage/SKILL.md": "fac9ae218743cc0f3d7bb2ec762a9ed04359ad74df6340c5cf95a756b977c986",
+    "skills/incoming-mail-triage/manifest.json": "d44cdaa9404a542710ed9a732065a2030b6eef0b1ddba3bcaeb11aa6bbfbc633",
+    "tools.json": "ac2ae65456faae89cb300219164f44829f0cf9dbe428dcaf5336e275d84ab37f"
+  },
+  "review_files_sha256": {
+    "GATE.txt": "5b1605a9504c3a0d1f065c8b1257ea98d9cdef304933263ad4ebf9f8ddeaaafe",
+    "GATE.json": "23fe4c6e451e0928715ee562a05103d262f30643d0b0729e7de1296b46b55420",
+    "QUESTIONS.json": "57c0138fe30636603b9cf008143a6300477676d2f717c406203eb75d02d494d5"
+  },
+  "validation_boundary": "Signed structural gate and scan packet generation passed with publisher continuity. Declaration/provenance tests pass; UI and original screenshots are unchanged. No new native, live provider, broker or model execution is claimed. Official catalog admission completed at sequence 10; the default public catalog and artifacts were verified separately without adding native/provider claims.",
+  "catalog_publication": {
+    "sequence": 10,
+    "pull_request": "https://github.com/OctoSense-org/OctoSense-App-Hub/pull/133",
+    "merge_commit_url": "https://github.com/OctoSense-org/OctoSense-App-Hub/commit/b8750d92c41365c4ff80f9baef077275a15b020b",
+    "verified_at_utc": "2026-10-07T07:19:32.352387+00:00",
+    "receipt": "CATALOG-0.1.1.json",
+    "immutable_tag_record_unchanged": true
+  }
+}
